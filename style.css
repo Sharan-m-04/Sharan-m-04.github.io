@@ -12,8 +12,9 @@
 /* Navigation section */
 .nav-section {
     /* background-color: rgb(223, 240, 255); */
-    /* background-color: rgb(187, 214, 255); */
-    background-color: rgb(241 241 241);
+    /* background-color: rgb(121, 175, 255); */
+    background-color: rgb(167, 205, 255);
+    /* background-color: rgb(241 241 241); */
 }
 
 .navig {
@@ -44,7 +45,14 @@
 
 .navLink {
     text-decoration: none;
-    color: rgb(39, 39, 39);
+    color: rgb(0, 20, 46);
+    padding: 10px;
+    font-size: 20px;
+    /* font-weight: 600; */
+}
+.navLink:hover {
+    text-decoration: none;
+    color: rgb(18, 61, 117);
     padding: 10px;
     font-size: 20px;
     /* font-weight: 600; */
@@ -116,16 +124,17 @@
 
 .downloadResume {
     z-index: 1;
-    background-color: rgb(133, 182, 255);
+    background-color: rgb(77, 148, 255);
     border: none;
     width: 200px;
     padding: 10px;
     border-radius: 40px;
     margin-top: 20px;
+    color: white;
+    font-size: 16px;
 }
 
-.downBtnLink {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
+.downloadResume:hover{
+    background-color: rgb(133, 182, 255);
+    cursor: pointer;
 }

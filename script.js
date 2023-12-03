@@ -66,3 +66,8 @@ function updateFontColor(eleRef, color) {
 function waitForMs(ms) {
     return new Promise(resolve => setTimeout(resolve, ms))
 }
+
+//Home: Download Button
+function resumeBtn() {
+    window.location.href = "/Downloads/Sharan's Resume.pdf";
+}
