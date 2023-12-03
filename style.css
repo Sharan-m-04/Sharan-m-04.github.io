@@ -1,0 +1,131 @@
+/* Imports */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Navigation section */
+.nav-section {
+    /* background-color: rgb(223, 240, 255); */
+    /* background-color: rgb(187, 214, 255); */
+    background-color: rgb(241 241 241);
+}
+
+.navig {
+    display: flex;
+    padding: 15px;
+}
+
+.profilePic {
+    width: 75px;
+    height: 75px;
+    background-image: url('Images/profile.jpg');
+    border-radius: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.navul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 15px;
+}
+
+.navItem {
+    list-style: none;
+}
+
+.navLink {
+    text-decoration: none;
+    color: rgb(39, 39, 39);
+    padding: 10px;
+    font-size: 20px;
+    /* font-weight: 600; */
+}
+
+/* Home Section */
+.home-section {
+    position: relative;
+    height: 95vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-background {
+    width: 110%;
+    height: 110%;
+    background: url("Images/home-background.png");
+    background-size: 35%;
+    background-position: 50% 50%;
+    position: absolute;
+    left: -10%;
+    top: -10%;
+}
+
+.typing-container {
+    z-index: 1;
+}
+
+.sentence {
+    z-index: 1;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+#feature-text {
+    z-index: 1;
+    font-size: 35px;
+}
+
+.input-cursor {
+    display: inline-block;
+    width: 3px;
+    height: 35px;
+    background-color: rgb(0, 0, 0);
+    margin-left: 8px;
+    animation: blink 0.6s linear infinite alternate;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    40% {
+        opacity: 1;
+    }
+
+    60% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.downloadResume {
+    z-index: 1;
+    background-color: rgb(133, 182, 255);
+    border: none;
+    width: 200px;
+    padding: 10px;
+    border-radius: 40px;
+    margin-top: 20px;
+}
+
+.downBtnLink {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
