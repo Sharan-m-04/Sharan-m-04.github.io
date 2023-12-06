@@ -80,46 +80,19 @@
     top: -10%;
 }
 
-.typing-container {
-    z-index: 1;
-}
-
 .sentence {
     z-index: 1;
     font-size: 50px;
     font-weight: bold;
 }
 
-#feature-text {
+.wrap {
     z-index: 1;
     font-size: 35px;
 }
 
-.input-cursor {
-    display: inline-block;
-    width: 3px;
-    height: 35px;
-    background-color: rgb(0, 0, 0);
-    margin-left: 8px;
-    animation: blink 0.6s linear infinite alternate;
-}
-
-@keyframes blink {
-    0% {
-        opacity: 1;
-    }
-
-    40% {
-        opacity: 1;
-    }
-
-    60% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 0;
-    }
+.typewrite{
+    z-index: 1;
 }
 
 .downloadResume {
