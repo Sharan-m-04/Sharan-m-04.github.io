@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sharan M | Portfolio Website</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" media="screen and (max-width: 768px)" href="phone.css">
 </head>
 
 <body>
     <section class="nav-section">
-        <nav class="navig">
+        <nav class="navig h-nav-resp">
             <div class="profilePic"></div>
-            <ul class="navul">
+            <ul class="navul v-class-resp">
                 <li class="navItem"><a href="#" class="navLink">Home</a></li>
                 <li class="navItem"><a href="#about" class="navLink">About</a></li>
                 <li class="navItem"><a href="#education" class="navLink">Education</a></li>
@@ -21,15 +21,26 @@
                 <li class="navItem"><a href="#skills" class="navLink">Skills</a></li>
                 <li class="navItem"><a href="#honors&awards" class="navLink">Honors & Awards</a></li>
             </ul>
+            <div class="burger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
         </nav>
     </section>
     <section class="home-section">
         <div class="home-background" id="home-background"></div>
-        <p class="sentence">I'm Sharan M, I'm a</p>
-        <span class="typewrite" data-period="2000" data-type='[ "Computer Science Student.", "Web Developer.", "UI/UX Developer." ]'>
-            <span class="wrap"></span>
-        </span>
-        <button class="downloadResume" onclick="resumeBtn()">Download Resume</button>
+        <div class="content">
+            <p class="sentence">I'm Sharan M, I'm a</p>
+            <span class="typewrite" data-period="2000"
+                data-type='[ "Computer Science Student.", "Web Developer.", "UI/UX Developer." ]'>
+                <span class="wrap"></span>
+            </span>
+            <button class="downloadResume" onclick="resumeBtn()">Download Resume</button>
+        </div>
+    </section>
+    <section class="abt-section">
+
     </section>
     <script src="script.js"></script>
 </body>

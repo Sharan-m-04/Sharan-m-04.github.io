@@ -13,18 +13,25 @@
 .nav-section {
     /* background-color: rgb(223, 240, 255); */
     /* background-color: rgb(121, 175, 255); */
-    background-color: rgb(167, 205, 255);
     /* background-color: rgb(241 241 241); */
+    display: flex;
+    align-items: center;
+    background-color: rgb(167, 205, 255);
+    box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, .2);
+    position: fixed;
+    z-index: 3;
+    width: 100%;
 }
 
 .navig {
     display: flex;
     padding: 15px;
+    align-items: center;
 }
 
 .profilePic {
-    width: 75px;
-    height: 75px;
+    width: 50px;
+    height: 50px;
     background-image: url('Images/profile.jpg');
     border-radius: 50%;
     background-size: cover;
@@ -34,9 +41,11 @@
 
 .navul {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     margin-left: 15px;
+    width: 100%;
 }
 
 .navItem {
@@ -50,12 +59,27 @@
     font-size: 20px;
     /* font-weight: 600; */
 }
+
 .navLink:hover {
-    text-decoration: none;
     color: rgb(18, 61, 117);
-    padding: 10px;
-    font-size: 20px;
     /* font-weight: 600; */
+}
+
+.burger {
+    width: 33px;
+    height: 50px;
+    display: none;
+    position: absolute;
+    cursor: pointer;
+    right: 5%;
+    top: 15px;
+}
+
+.line {
+    background-color: white;
+    width: 33px;
+    height: 4px;
+    margin: 3px 5px;
 }
 
 /* Home Section */
@@ -80,6 +104,14 @@
     top: -10%;
 }
 
+.content {
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .sentence {
     z-index: 1;
     font-size: 50px;
@@ -91,7 +123,7 @@
     font-size: 35px;
 }
 
-.typewrite{
+.typewrite {
     z-index: 1;
 }
 
@@ -107,7 +139,9 @@
     font-size: 16px;
 }
 
-.downloadResume:hover{
+.downloadResume:hover {
     background-color: rgb(133, 182, 255);
     cursor: pointer;
 }
+
+/* About Section */

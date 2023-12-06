@@ -1,0 +1,64 @@
+/* Navigation Section */
+.navul {
+    flex-direction: column;
+    position: absolute;
+    margin: 0;
+    left: 0;
+    /* opacity: 1;
+    height: 287px;
+    transition: all 0.5s ease-out; */
+    /* transition-delay: 0.3s; */
+}
+
+.navLink {
+    font-size: 22px;
+}
+
+.navig {
+    height: 224px;
+    flex-direction: column;
+    transition: all 0.1s ease-out;
+}
+
+.burger {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu {
+    width: 70px;
+    height: 30px;
+}
+
+.h-nav-resp {
+    height: 80px;
+    /* opacity: 1;
+    visibility: visible;
+    transition: all 0.3s ease-out; */
+}
+
+.v-class-resp {
+    /* height: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-out; */
+    /* transition-delay: 0.3s; */
+    display: none;
+}
+
+/* Home Section */
+
+.home-background {
+    margin-top: 100px;
+    background-size: 100%;
+}
+
+.sentence {
+    font-size: 30px;
+}
+
+.wrap {
+    font-size: 25px;
+}

@@ -1,15 +1,45 @@
+//Navigation Burgur
+
+burger = document.querySelector('.burger');
+navig = document.querySelector('.navig');
+navul = document.querySelector('.navul');
+
+burger.addEventListener('click', () => {
+    navig.classList.toggle('h-nav-resp');
+    navul.classList.toggle('v-class-resp');
+    // setTimeout(()=> {
+    // navul.classList.toggle('v-class-resp');
+    // } , 150);
+});
+
 // Home: paralax effect
 
 var getParallaxContainer = document.querySelector(".home-background");
 // var getParallaxContent = document.querySelector(".home-content");
 
-getParallaxContainer.addEventListener("mousemove", function (e) {
-    let x = e.pageX / window.innerWidth;
-    let y = e.pageY / window.innerHeight;
+function handleMousemove() {
+    var maxWidth = 768;
 
-    this.style.transform = `translate(${x * 2}%, ${y * 2}%)`;
-    //   getParallaxContent.style.transform = `translate(${-x * 8}%, ${-y * 8}%)`;
-});
+    if (window.innerWidth <= maxWidth) {
+        getParallaxContainer.addEventListener("mousemove", function (e) {
+            let x = e.pageX / window.innerWidth;
+            let y = e.pageY / window.innerHeight;
+        
+            this.style.transform = `translate(${0}%, ${0}%)`;
+        });
+    } else {
+        getParallaxContainer.addEventListener("mousemove", function (e) {
+            let x = e.pageX / window.innerWidth;
+            let y = e.pageY / window.innerHeight;
+        
+            this.style.transform = `translate(${x * 2}%, ${y * 2}%)`;
+            // getParallaxContent.style.transform = `translate(${-x * 8}%, ${-y * 8}%)`;
+        });
+    }
+}
+handleMousemove();
+window.addEventListener('resize', handleMousemove);
+
 
 // Home: Typing effect
 
