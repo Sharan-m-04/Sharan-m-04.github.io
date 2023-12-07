@@ -14,9 +14,10 @@
     /* background-color: rgb(223, 240, 255); */
     /* background-color: rgb(121, 175, 255); */
     /* background-color: rgb(241 241 241); */
+    /* background-color: rgb(167, 205, 255); */
+    background-color: #4d94ff;
     display: flex;
     align-items: center;
-    background-color: rgb(167, 205, 255);
     box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, .2);
     position: fixed;
     z-index: 3;
@@ -30,7 +31,7 @@
 }
 
 .profilePic {
-    width: 50px;
+    width: 56px;
     height: 50px;
     background-image: url('Images/profile.jpg');
     border-radius: 50%;
@@ -54,15 +55,16 @@
 
 .navLink {
     text-decoration: none;
-    color: rgb(0, 20, 46);
+    /* color: rgb(0, 20, 46); */
+    color: white;
     padding: 10px;
     font-size: 20px;
     /* font-weight: 600; */
 }
 
 .navLink:hover {
-    color: rgb(18, 61, 117);
-    /* font-weight: 600; */
+    /* color: rgb(18, 61, 117); */
+    color: rgb(207 228 255);
 }
 
 .burger {

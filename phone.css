@@ -20,6 +20,10 @@
     transition: all 0.1s ease-out;
 }
 
+.profilePic {
+    width: 50px;
+}
+
 .burger {
     display: flex;
     flex-direction: column;
