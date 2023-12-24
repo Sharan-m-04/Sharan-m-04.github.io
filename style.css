@@ -1,7 +1,9 @@
 /* Imports */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 /* CSS Reset */
+
 * {
     margin: 0;
     padding: 0;
@@ -9,7 +11,12 @@
     font-family: 'Poppins', sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* Navigation section */
+
 .nav-section {
     /* background-color: rgb(223, 240, 255); */
     /* background-color: rgb(121, 175, 255); */
@@ -85,9 +92,10 @@
 }
 
 /* Home Section */
+
 .home-section {
     position: relative;
-    height: 95vh;
+    height: 100vh;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -97,7 +105,7 @@
 
 .home-background {
     width: 110%;
-    height: 110%;
+    height: 110vh;
     background: url("Images/home-background.png");
     background-size: 35%;
     background-position: 50% 50%;
@@ -116,7 +124,7 @@
 
 .sentence {
     z-index: 1;
-    font-size: 50px;
+    font-size: 90px;
     font-weight: bold;
 }
 
@@ -147,3 +155,102 @@
 }
 
 /* About Section */
+
+.abt-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #edf4ff;
+    /* background: url('Images/about-background.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: 50% 50%; */
+    height: 100vh;
+}
+
+.abt-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.abt-head {
+    font-size: 90px;
+    text-align: center;
+    margin-top: 75px;
+}
+
+.abt-cont {
+    font-size: 20px;
+    text-align: center;
+    width: 50%;
+    margin-top: 15px 0 15px 0;
+}
+
+.reveal {
+    position: relative;
+    opacity: 0;
+}
+
+.reveal.active {
+    opacity: 1;
+    animation: fade-pop 1s ease-in;
+}
+
+
+/* Animations */
+
+@keyframes fade-pop {
+    0% {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fade-bottom {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fade-left {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fade-right {
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Media Query */
+
+@media only screen and (max-width: 1162px) {}

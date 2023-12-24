@@ -18,20 +18,20 @@ var getParallaxContainer = document.querySelector(".home-background");
 // var getParallaxContent = document.querySelector(".home-content");
 
 function handleMousemove() {
-    var maxWidth = 768;
+    var maxWidth = 906;
 
     if (window.innerWidth <= maxWidth) {
         getParallaxContainer.addEventListener("mousemove", function (e) {
             let x = e.pageX / window.innerWidth;
             let y = e.pageY / window.innerHeight;
-        
+
             this.style.transform = `translate(${0}%, ${0}%)`;
         });
     } else {
         getParallaxContainer.addEventListener("mousemove", function (e) {
             let x = e.pageX / window.innerWidth;
             let y = e.pageY / window.innerHeight;
-        
+
             this.style.transform = `translate(${x * 2}%, ${y * 2}%)`;
             // getParallaxContent.style.transform = `translate(${-x * 8}%, ${-y * 8}%)`;
         });
@@ -93,7 +93,6 @@ window.onload = function () {
             new TxtType(elements[i], JSON.parse(toRotate), period);
         }
     }
-    // INJECT CSS
     var css = document.createElement("style");
     css.type = "text/css";
     css.innerHTML = ".typewrite > .wrap { border-right: 2px solid #000;}";
@@ -105,3 +104,29 @@ window.onload = function () {
 function resumeBtn() {
     window.location.href = "/Downloads/Sharan's Resume.pdf";
 }
+
+//About: Contact Button
+
+function contactBtn() {
+    window.location.href = "#contact-me";
+}
+
+//About: Scroll Animation
+
+function reveal() {
+    var reveals = document.querySelectorAll(".reveal");
+
+    for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 150;
+
+        if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add("active");
+        } else {
+            reveals[i].classList.remove("active");
+        }
+    }
+}
+
+window.addEventListener("scroll", reveal);

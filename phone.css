@@ -15,7 +15,7 @@
 }
 
 .navig {
-    height: 224px;
+    height: 253px;
     flex-direction: column;
     transition: all 0.1s ease-out;
 }
@@ -65,4 +65,15 @@
 
 .wrap {
     font-size: 25px;
+}
+
+/* About Seciton */
+
+.abt-head {
+    font-size: 50px;
+}
+
+.abt-cont {
+    font-size: 16px;
+    width: 80%;
 }

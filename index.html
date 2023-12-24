@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sharan M | Portfolio Website</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" media="screen and (max-width: 768px)" href="phone.css">
+    <link rel="stylesheet" media="screen and (max-width: 906px)" href="phone.css">
 </head>
 
 <body>
@@ -15,11 +15,12 @@
             <div class="profilePic"></div>
             <ul class="navul v-class-resp">
                 <li class="navItem"><a href="#" class="navLink">Home</a></li>
-                <li class="navItem"><a href="#about" class="navLink">About</a></li>
+                <li class="navItem"><a href="#about-me" class="navLink">About Me</a></li>
                 <li class="navItem"><a href="#education" class="navLink">Education</a></li>
                 <li class="navItem"><a href="#projects" class="navLink">Projects</a></li>
                 <li class="navItem"><a href="#skills" class="navLink">Skills</a></li>
                 <li class="navItem"><a href="#honors&awards" class="navLink">Honors & Awards</a></li>
+                <li class="navItem"><a href="#contact-me" class="navLink">Contact Me</a></li>
             </ul>
             <div class="burger">
                 <div class="line"></div>
@@ -39,10 +40,18 @@
             <button class="downloadResume" onclick="resumeBtn()">Download Resume</button>
         </div>
     </section>
-    <section class="abt-section">
-
+    <section class="abt-section" id="about-me">
+        <div class="abt-div reveal fade-pop">
+            <p class="abt-head">About Me</p>
+            <p class="abt-cont">I'm a Computer Science and Engineering Student at Visvesvaraya Technological University.
+                Winner of UI/UX Design Hackathon, Web Developer, Front-End Developer and Android Developer. I Like to
+                Learn and Explore New Frontiers in Technology. I Enjoy Solving Real-World Problems Using Programming.
+            </p>
+            <button class="downloadResume" onclick="contactBtn()">Contact Me</button>
+        </div>
     </section>
     <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/89af5da05d.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
