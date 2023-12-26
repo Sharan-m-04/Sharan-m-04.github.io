@@ -429,6 +429,26 @@ html {
     align-items: center;
 }
 
+.reveal-left {
+    position: relative;
+    opacity: 0;
+}
+
+.reveal-left.active {
+    opacity: 1;
+    animation: fade-left 1s ease-in;
+}
+
+.reveal-right {
+    position: relative;
+    opacity: 0;
+}
+
+.reveal-right.active {
+    opacity: 1;
+    animation: fade-right 1s ease-in;
+}
+
 /* Animations */
 
 @keyframes fade-pop {
@@ -457,7 +477,7 @@ html {
 
 @keyframes fade-left {
     0% {
-        transform: translateX(-100px);
+        transform: translateX(-20px);
         opacity: 0;
     }
 
@@ -469,7 +489,7 @@ html {
 
 @keyframes fade-right {
     0% {
-        transform: translateX(100px);
+        transform: translateX(20px);
         opacity: 0;
     }
 
@@ -513,6 +533,16 @@ html {
 
     .right {
         left: 0%;
+    }
+
+    .reveal-left {
+        position: relative;
+        opacity: 0;
+    }
+
+    .reveal-left.active {
+        opacity: 1;
+        animation: fade-right 1s ease-in;
     }
 }
 
