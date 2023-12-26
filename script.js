@@ -130,3 +130,36 @@ function reveal() {
 }
 
 window.addEventListener("scroll", reveal);
+
+
+//Project: Open Projects
+
+function portfolioProject() {
+    window.open(
+        "https://github.com/Sharan-m-04/Sharan-m-04.github.io", "_blank");
+}
+
+function BMIcalcProject() {
+    window.open(
+        "https://github.com/Sharan-m-04/BMI-Calculator", "_blank");
+}
+
+function CATexamEvaluationSystemProject() {
+    window.open(
+        "https://github.com/Sharan-m-04/CAT-Exam-Evaluation-System", "_blank");
+}
+
+function PDFmergerProject() {
+    window.open(
+        "https://github.com/Sharan-m-04/PDF-Merger", "_blank");
+}
+
+function DigitalStenoProject() {
+    window.open(
+        "https://github.com/Sharan-m-04/Digital_Steno", "_blank");
+}
+
+function SkeezyProject() {
+    window.open(
+        "https://www.figma.com/file/GalviVgIyYuSJoSV6ezBDs/Hackathon-22", "_blank");
+}
