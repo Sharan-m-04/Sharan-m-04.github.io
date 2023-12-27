@@ -453,10 +453,10 @@ html {
 /* Skills Section */
 
 .skills-section {
-    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    height: 100vh;
 }
 
 .skill-head {
@@ -503,7 +503,7 @@ html {
 
 .skill-card {
     padding: 15px;
-    background-color: #dae8ff;
+    background-color: #edf4ff;
     border: 1px solid #cbdeff;
     border-radius: 20px;
     display: flex;
@@ -513,7 +513,7 @@ html {
 }
 
 .show {
-    display: block;
+    display: flex;
 }
 
 .skill-card:hover {

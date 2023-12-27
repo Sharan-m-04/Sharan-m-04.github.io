@@ -120,3 +120,46 @@
 .pro-head {
     font-size: 50px;
 }
+
+/* Skills Section */
+
+.skills-section {
+    height: auto;
+}
+
+.skill-head {
+    font-size: 50px;
+}
+
+.skill-chip {
+    font-size: 14px;
+    padding: 8px 15px 8px 15px;
+}
+
+.skill-content {
+    grid-template-columns: auto auto auto;
+}
+
+/* Media Query */
+
+@media screen and (max-width: 712px) {
+    .skill-chips-div {
+        white-space: nowrap;
+        overflow-x: scroll;
+    }
+    
+    .skill-content {
+        grid-template-columns: 50% 50%;
+    }
+}
+
+@media screen and (max-width: 484px) {
+    .skill-chips-div {
+        white-space: nowrap;
+        overflow-x: scroll;
+    }
+
+    .skill-content {
+        grid-template-columns: 95%;
+    }
+}
