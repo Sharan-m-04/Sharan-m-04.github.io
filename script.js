@@ -267,3 +267,42 @@ function normal_fade() {
 }
 
 window.addEventListener("scroll", normal_fade);
+
+//Awards: Opening image in new tab
+
+function TechConnectCertificate() {
+    const show_certificate = window.open("", "_blank");
+    show_certificate.document.write(`
+        <html>
+        <head>
+            <style>
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                }
+
+                body {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: #3662a9;
+                }
+                
+                .certificate-img {
+                    width: 694px;
+                    height: 491px;
+                    background: url(Images/TechConnectCertificate.jpg);
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: 50% 50%;
+                    border-radius: 10px;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="certificate-img"></div>
+        </body>
+        </html>
+    `);
+}
