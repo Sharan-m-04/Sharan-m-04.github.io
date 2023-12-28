@@ -377,7 +377,7 @@ function UI_UX_HackathonCertificate() {
         <body>
             <div class="certificate-img"></div>
         </body>
-        </html>
+        </html> 
     `);
     // window.open("Images/ui-uxHackathonCertificate.jpg", "_blank");
 }
