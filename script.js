@@ -366,7 +366,7 @@ function UI_UX_HackathonCertificate() {
                 .certificate-img {
                     width: 444px;
                     height: 313px;
-                    background: url(Images/UI-UX-Hackathon-Certificate.jpg);
+                    background: url(Images/ui-uxHackathonCertificate.jpg);
                     background-size: cover;
                     background-repeat: no-repeat;
                     background-position: 50% 50%;
