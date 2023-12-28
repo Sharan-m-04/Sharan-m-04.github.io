@@ -152,6 +152,7 @@
 
 .award-content {
     grid-template-columns: 90%;
+    gap: 20px;
 }
 
 /* Media Query */
