@@ -271,8 +271,8 @@ window.addEventListener("scroll", normal_fade);
 //Awards: Opening image in new tab
 
 function TechConnectCertificate() {
-    const show_certificate = window.open("", "_blank");
-    show_certificate.document.write(`
+    const show_certificate1 = window.open("", "_blank");
+    show_certificate1.document.write(`
         <html>
         <head>
             <style>
@@ -292,7 +292,7 @@ function TechConnectCertificate() {
                 .certificate-img {
                     width: 694px;
                     height: 491px;
-                    background: url(Images/TechConnectCertificate.jpg);
+                    background: url('Images/TechConnectCertificate.jpg');
                     background-size: cover;
                     background-repeat: no-repeat;
                     background-position: 50% 50%;
@@ -308,8 +308,8 @@ function TechConnectCertificate() {
 }
 
 function CodeKazeCertificate() {
-    const show_certificate = window.open("", "_blank");
-    show_certificate.document.write(`
+    const show_certificate2 = window.open("", "_blank");
+    show_certificate2.document.write(`
         <html>
         <head>
             <style>
@@ -329,7 +329,7 @@ function CodeKazeCertificate() {
                 .certificate-img {
                     width: 450px;
                     height: 800px;
-                    background: url(Images/code-kaze-certificate.jpg);
+                    background: url('Images/code-kaze-certificate.jpg');
                     background-size: cover;
                     background-repeat: no-repeat;
                     background-position: 50% 50%;
@@ -345,39 +345,39 @@ function CodeKazeCertificate() {
 }
 
 function UI_UX_HackathonCertificate() {
-    // const show_certificate = window.open("", "_blank");
-    // show_certificate.document.write(`
-    //     <html>
-    //     <head>
-    //         <style>
-    //             * {
-    //                 margin: 0;
-    //                 padding: 0;
-    //                 box-sizing: border-box;
-    //             }
+    const show_certificate3 = window.open("", "_blank");
+    show_certificate3.document.write(`
+        <html>
+        <head>
+            <style>
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                }
 
-    //             body {
-    //                 display: flex;
-    //                 align-items: center;
-    //                 justify-content: center;
-    //                 background: #14140f;
-    //             }
+                body {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: #14140f;
+                }
                 
-    //             .certificate-img {
-    //                 width: 444px;
-    //                 height: 313px;
-    //                 background: url(Images/ui-uxHackathonCertificate.jpg);
-    //                 background-size: cover;
-    //                 background-repeat: no-repeat;
-    //                 background-position: 50% 50%;
-    //                 border-radius: 10px;
-    //             }
-    //         </style>
-    //     </head>
-    //     <body>
-    //         <div class="certificate-img"></div>
-    //     </body>
-    //     </html>
-    // `);
-    window.open("Images/ui-uxHackathonCertificate.jpg", "_blank");
+                .certificate-img {
+                    width: 444px;
+                    height: 313px;
+                    background: url('Images/ui-uxHackathonCertificate.jpg');
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: 50% 50%;
+                    border-radius: 10px;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="certificate-img"></div>
+        </body>
+        </html>
+    `);
+    // window.open("Images/ui-uxHackathonCertificate.jpg", "_blank");
 }
