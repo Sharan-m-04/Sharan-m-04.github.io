@@ -247,3 +247,23 @@ for (var i = 0; i < btns.length; i++) {
         event.target.classList.add("active");
     });
 }
+
+//Skills: Scroll Animation
+
+function normal_fade() {
+    var reveals = document.querySelectorAll(".fade");
+
+    for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 150;
+
+        if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add("active");
+        } else {
+            reveals[i].classList.remove("active");
+        }
+    }
+}
+
+window.addEventListener("scroll", normal_fade);

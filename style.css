@@ -190,16 +190,6 @@ html {
     margin-top: 15px 0 15px 0;
 }
 
-.reveal {
-    position: relative;
-    opacity: 0;
-}
-
-.reveal.active {
-    opacity: 1;
-    animation: fade-pop 1s ease-in;
-}
-
 /* Education Section */
 
 .edu-section {
@@ -430,26 +420,6 @@ html {
     align-items: center;
 }
 
-.reveal-left {
-    position: relative;
-    opacity: 0;
-}
-
-.reveal-left.active {
-    opacity: 1;
-    animation: fade-left 1s ease-in;
-}
-
-.reveal-right {
-    position: relative;
-    opacity: 0;
-}
-
-.reveal-right.active {
-    opacity: 1;
-    animation: fade-right 1s ease-in;
-}
-
 /* Skills Section */
 
 .skills-section {
@@ -487,6 +457,7 @@ html {
 
 .skill-chip.active {
     background-color: #4d94ff;
+    border: none;
     color: white;
 }
 
@@ -532,6 +503,64 @@ html {
 }
 
 /* Animations */
+
+/* Setting Scroll Animations */
+
+/* Just Fade Animation */
+.fade {
+    position: relative;
+    opacity: 0;
+}
+
+.fade.active {
+    opacity: 1;
+    animation: normal-fade 1s ease-in;
+}
+
+/* Fade Pop Animation */
+.reveal {
+    position: relative;
+    opacity: 0;
+}
+
+.reveal.active {
+    opacity: 1;
+    animation: fade-pop 1s ease-in;
+}
+
+/* Fade Right Animation */
+.reveal-right {
+    position: relative;
+    opacity: 0;
+}
+
+.reveal-right.active {
+    opacity: 1;
+    animation: fade-right 1s ease-in;
+}
+
+/* Fade Left Animation */
+.reveal-left {
+    position: relative;
+    opacity: 0;
+}
+
+.reveal-left.active {
+    opacity: 1;
+    animation: fade-left 1s ease-in;
+}
+
+/* Animation (Key Frames) */
+
+@keyframes normal-fade {
+    0% {
+        opacity: 0;
+    }
+    
+    100% {
+        opacity: 1;
+    }
+}
 
 @keyframes fade-pop {
     0% {
