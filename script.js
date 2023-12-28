@@ -306,3 +306,77 @@ function TechConnectCertificate() {
         </html>
     `);
 }
+
+function CodeKazeCertificate() {
+    const show_certificate = window.open("", "_blank");
+    show_certificate.document.write(`
+        <html>
+        <head>
+            <style>
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                }
+
+                body {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: #0b0c08;
+                }
+                
+                .certificate-img {
+                    width: 450px;
+                    height: 800px;
+                    background: url(Images/code-kaze-certificate.jpg);
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: 50% 50%;
+                    border-radius: 10px;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="certificate-img"></div>
+        </body>
+        </html>
+    `);
+}
+
+function UI_UX_HackathonCertificate() {
+    const show_certificate = window.open("", "_blank");
+    show_certificate.document.write(`
+        <html>
+        <head>
+            <style>
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                }
+
+                body {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: #14140f;
+                }
+                
+                .certificate-img {
+                    width: 694px;
+                    height: 491px;
+                    background: url(Images/UI-UX-Hackathon-Certificate.jpg);
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: 50% 50%;
+                    border-radius: 10px;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="certificate-img"></div>
+        </body>
+        </html>
+    `);
+}

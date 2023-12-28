@@ -525,6 +525,7 @@ html {
     align-items: center;
     justify-content: center;
     gap: 10px;
+    margin-top: 30px;
 }
 
 .award-card {
@@ -761,5 +762,11 @@ html {
 
     .project-section {
         margin-top: 50px;
+    }
+}
+
+@media screen and (max-width: 1805px) {
+    .award-content {
+        grid-template-columns: 30% 30% 30%;
     }
 }

@@ -140,6 +140,20 @@
     grid-template-columns: auto auto auto;
 }
 
+/* Awards Section */
+
+.awards-head {
+    font-size: 50px;
+}
+
+.awards-section {
+    height: auto;
+}
+
+.award-content {
+    grid-template-columns: 90%;
+}
+
 /* Media Query */
 
 @media screen and (max-width: 712px) {
