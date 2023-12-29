@@ -102,7 +102,7 @@ window.onload = function () {
 //Home: Download Button
 
 function resumeBtn() {
-    window.location.href = "/Downloads/Sharan's Resume.pdf";
+    window.location.href = "/Downloads/SharanResume.pdf";
 }
 
 //About: Contact Button

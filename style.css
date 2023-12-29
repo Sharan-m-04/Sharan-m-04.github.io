@@ -193,7 +193,6 @@ html {
 /* Education Section */
 
 .edu-section {
-    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
