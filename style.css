@@ -422,10 +422,10 @@ html {
 /* Skills Section */
 
 .skills-section {
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100vh;
 }
 
 .skill-head {
@@ -510,6 +510,7 @@ html {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-bottom: 30px;
 }
 
 .awards-head {
@@ -589,6 +590,59 @@ html {
     cursor: pointer;
 }
 
+/* Contact Section */
+
+.contact-section {
+    /* height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+
+.contact-head {
+    font-size: 90px;
+    text-align: center;
+    margin-top: 75px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+}
+
+.contact-input {
+    display: block;
+    padding: 10px 20px 10px 20px;
+    margin: 4px;
+    font-size: 16px;
+    width: 100%;
+    background-color: #edf4ff;
+    border: 1px solid #d3d8e0;
+    border-radius: 25px;
+}
+
+.contact-submit-btn {
+    z-index: 1;
+    background-color: rgb(77, 148, 255);
+    border: none;
+    width: 200px;
+    padding: 10px;
+    border-radius: 40px;
+    margin-top: 20px;
+    color: white;
+    font-size: 16px;
+}
+
+.contact-submit-btn:hover {
+    background-color: rgb(133, 182, 255);
+    cursor: pointer;
+}
+
 /* Animations */
 
 /* Setting Scroll Animations */
@@ -643,7 +697,7 @@ html {
     0% {
         opacity: 0;
     }
-    
+
     100% {
         opacity: 1;
     }
@@ -767,5 +821,21 @@ html {
 @media screen and (max-width: 1805px) {
     .award-content {
         grid-template-columns: 30% 30% 30%;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .form-container {
+        width: 35%;
+    }
+}
+
+@media screen and (max-height: 724px) {
+    .skills-section {
+        height: auto;
+    }
+
+    .awards-section {
+        height: auto;
     }
 }

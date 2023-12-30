@@ -155,6 +155,12 @@
     gap: 20px;
 }
 
+/* Contact Section */
+
+.contact-head {
+    font-size: 50px;
+}
+
 /* Media Query */
 
 @media screen and (max-width: 712px) {
@@ -162,7 +168,7 @@
         white-space: nowrap;
         overflow-x: scroll;
     }
-    
+
     .skill-content {
         grid-template-columns: 50% 50%;
     }
@@ -176,5 +182,23 @@
 
     .skill-content {
         grid-template-columns: 95%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .form-container {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .form-container {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 310px) {
+    .contact-head {
+        font-size: 40px;
     }
 }
