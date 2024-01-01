@@ -161,6 +161,20 @@
     font-size: 50px;
 }
 
+/* Footer Section */
+
+.footer-head {
+    font-size: 14px;
+}
+
+.footer-navLink {
+    font-size: 12px;
+}
+
+.social-icons {
+    font-size: 14px;
+}
+
 /* Media Query */
 
 @media screen and (max-width: 712px) {
@@ -200,5 +214,18 @@
 @media screen and (max-width: 310px) {
     .contact-head {
         font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 598px) {
+    .footer-navul {
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        grid-template-columns: auto auto;
+    }
+
+    .footer-navItem {
+        text-align: center;
     }
 }

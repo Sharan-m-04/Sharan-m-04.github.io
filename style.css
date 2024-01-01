@@ -626,6 +626,10 @@ html {
     border-radius: 25px;
 }
 
+textarea {
+    resize: none;
+}
+
 .contact-submit-btn {
     z-index: 1;
     background-color: rgb(77, 148, 255);
@@ -641,6 +645,59 @@ html {
 .contact-submit-btn:hover {
     background-color: rgb(133, 182, 255);
     cursor: pointer;
+}
+
+/* Footer */
+
+.footer {
+    /* height: 20vh; */
+    padding: 20px;
+    background-color: #11223b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-head {
+    color: #c5daff;
+    font-size: 18px;
+    text-align: center;
+}
+
+.footer-navul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 8px;
+    width: 100%;
+}
+
+.footer-navItem {
+    list-style: none;
+}
+
+.footer-navLink {
+    text-decoration: none;
+    color: #c5daff;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.footer-navLink:hover {
+    color: #e4eeff;
+}
+
+.social-icons {
+    text-decoration: none;
+    color: #c5daff;
+    font-size: 18px;
+    margin: 3px;
+}
+
+.social-icons:hover {
+    color: #e4eeff;
 }
 
 /* Animations */
@@ -836,6 +893,12 @@ html {
     }
 
     .awards-section {
+        height: auto;
+    }
+}
+
+@media screen and (max-height: 480px) {
+    .contact-section {
         height: auto;
     }
 }
