@@ -1,3 +1,26 @@
+//Return to top
+
+let rToTop = document.getElementById("rToTop");
+
+window.onscroll = function () {
+    scrollFunction();
+};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        rToTop.style.display = "block";
+    }
+    else {
+        rToTop.style.display = "none";
+    }
+}
+
+rToTop.addEventListener("click", backToTop);
+function backToTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+
 //Navigation Burgur
 
 burger = document.querySelector('.burger');
@@ -7,15 +30,17 @@ navul = document.querySelector('.navul');
 burger.addEventListener('click', () => {
     navig.classList.toggle('h-nav-resp');
     navul.classList.toggle('v-class-resp');
-    // setTimeout(()=> {
-    // navul.classList.toggle('v-class-resp');
-    // } , 150);
 });
+
+// Navigation: Profile button
+
+function profileBtn() {
+    window.location.href = "https://sharan-m-04.github.io/";
+}
 
 // Home: paralax effect
 
 var getParallaxContainer = document.querySelector(".home-background");
-// var getParallaxContent = document.querySelector(".home-content");
 
 function handleMousemove() {
     var maxWidth = 906;
@@ -33,7 +58,6 @@ function handleMousemove() {
             let y = e.pageY / window.innerHeight;
 
             this.style.transform = `translate(${x * 2}%, ${y * 2}%)`;
-            // getParallaxContent.style.transform = `translate(${-x * 8}%, ${-y * 8}%)`;
         });
     }
 }
@@ -303,7 +327,6 @@ function UI_UX_HackathonCertificate() {
 }
 
 // Animations
-
 
 // Pop Scroll Animation
 
