@@ -153,8 +153,9 @@ html {
 }
 
 .sentence {
+    text-align: center;
     z-index: 1;
-    font-size: 90px;
+    font-size: 56px;
     font-weight: bold;
 }
 
@@ -164,6 +165,7 @@ html {
 }
 
 .typewrite {
+    text-align: center;
     z-index: 1;
 }
 
@@ -204,7 +206,7 @@ html {
 }
 
 .abt-head {
-    font-size: 90px;
+    font-size: 80px;
     text-align: center;
     margin-top: 75px;
 }
@@ -309,7 +311,7 @@ html {
 }
 
 .pro-head {
-    font-size: 90px;
+    font-size: 80px;
     text-align: center;
     margin-top: 75px;
 }
@@ -455,7 +457,7 @@ html {
 }
 
 .skill-head {
-    font-size: 90px;
+    font-size: 80px;
     text-align: center;
     margin-top: 75px;
 }
@@ -540,7 +542,7 @@ html {
 }
 
 .awards-head {
-    font-size: 90px;
+    font-size: 80px;
     text-align: center;
     margin-top: 75px;
 }
@@ -628,7 +630,7 @@ html {
 }
 
 .contact-head {
-    font-size: 90px;
+    font-size: 80px;
     text-align: center;
     margin-top: 75px;
 }
