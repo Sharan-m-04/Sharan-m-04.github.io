@@ -409,3 +409,4 @@ function normal_fade() {
 }
 
 window.addEventListener("scroll", normal_fade);
+
