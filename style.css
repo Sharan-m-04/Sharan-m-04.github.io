@@ -193,7 +193,6 @@ html {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: #edf4ff;
     height: 100vh;
 }
 
@@ -217,6 +216,67 @@ html {
     width: 50%;
     margin-top: 15px 0 15px 0;
 }
+
+/* Experience Section */
+
+.exp-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #edf4ff;
+    min-height: 80vh;
+}
+
+.exp-head {
+    font-size: 90px;
+    text-align: center;
+    margin-top: 75px;
+    margin-bottom: 50px;
+}
+
+.exp-timeline {
+    position: relative;
+    margin-left: 40px;
+}
+
+.exp-card {
+    position: relative;
+    padding-left: 15px;
+    margin-bottom: 20px;
+}
+
+.exp-card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -20px;
+    width: 2px;
+    height: 100%;
+    background-color: #000;
+}
+
+.job-title {
+    font-size: 24px;
+    font-weight: bold;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.company-details {
+    font-size: 16px;
+    color: #505964;
+    padding-bottom: 0;
+}
+
+.duration {
+    font-size: 14px;
+}
+
+.job-description {
+    margin-top: 10px;
+}
+
 
 /* Education Section */
 
@@ -549,7 +609,7 @@ html {
 
 .award-content {
     display: grid;
-    grid-template-columns: 20% 20% 20%;
+    grid-template-columns: 20% 20% 20% 20%;
     align-items: center;
     justify-content: center;
     gap: 10px;

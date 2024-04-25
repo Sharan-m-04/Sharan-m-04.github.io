@@ -137,6 +137,16 @@ function contactBtn() {
 
 //Project: Open Projects
 
+function inventoryProject() {
+    window.open(
+        "https://github.com/Sharan-m-04/Inventory-Management-System", "_blank");
+}
+
+function ignytBeerStationProject() {
+    window.open(
+        "https://github.com/Sharan-m-04/Ignyt-Beer-Station", "_blank");
+}
+
 function portfolioProject() {
     window.open(
         "https://github.com/Sharan-m-04/Sharan-m-04.github.io", "_blank");

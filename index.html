@@ -27,6 +27,7 @@
             <ul class="navul v-class-resp">
                 <li class="navItem"><a href="#" class="navLink">Home</a></li>
                 <li class="navItem"><a href="#about-me" class="navLink">About Me</a></li>
+                <li class="navItem"><a href="#experience" class="navLink">Experience</a></li>
                 <li class="navItem"><a href="#education" class="navLink">Education</a></li>
                 <li class="navItem"><a href="#projects" class="navLink">Projects</a></li>
                 <li class="navItem"><a href="#skills" class="navLink">Skills</a></li>
@@ -65,6 +66,21 @@
         </div>
     </section>
 
+    <section class="exp-section" id="experience">
+        <p class="exp-head reveal fade-pop">Experience</p>
+        <div class="exp-timeline reveal fade-pop">
+            <div class="exp-card reveal fade-pop">
+                <div class="job-title">Full Stack Web Developer</div>
+                <div class="company-details">Varcons Technologies Pvt. Ltd. · Internship · Remote</div>
+                <div class="duration">Dec 2023 - Jan 2024 · 2 mos</div>
+                <div class="job-description">Full Stack Developer Intern at Varcons Technologies Pvt. Ltd. Contributed
+                    as
+                    a Full Stack Developer Intern at Varcons Technologies, <br> engaging in end-to-end web development
+                    projects. Enhanced skills in both front-end and back-end technologies.</div>
+            </div>
+        </div>
+    </section>
+
     <section class="edu-section" id="education">
         <p class="edu-head">Education</p>
         <div class="edu-card reveal fade-pop">
@@ -87,6 +103,26 @@
     <section class="project-section" id="projects">
         <p class="pro-head">Projects</p>
         <div class="timeline">
+            <div class="container left">
+                <p>
+                <div class="content reveal-left">
+                    <h2 class="pro-card-head">Inventory Management System</h2>
+                    <p class="pro-duration">Feb 2024 - Mar 2024</p>
+                    <p class="pro-card-desc">A mini project for VTU's 5th Semester: an Inventory Management System. Built with Django, MySQL, HTML, CSS, and JavaScript, it tracks inventory, transactions, and stock levels, alerting for low stock. Boosts productivity with a user-friendly interface.
+                    </p>
+                    <button class="visit-project-button" onclick="inventoryProject()">Visit Project<i
+                            class="fa-solid fa-arrow-up-right-from-square open-icon"></i></button>
+                </div>
+            </div>
+            <div class="container right">
+                <div class="content reveal-right">
+                    <h2 class="pro-card-head">Ignyt - The Beer Lounge</h2>
+                    <p class="pro-duration">Jan 2024 - Jan 2024</p>
+                    <p class="pro-card-desc">Internship Project at Varcons Technologies Pvt. Ltd.: Collaborated on developing a dynamic web platform for the client 'Ignyt - The Beer Lounge,'. Leveraged Django to enhance user experience and streamline pub operations.</p>
+                    <button class="visit-project-button" onclick="ignytBeerStationProject()">Visit Project<i
+                            class="fa-solid fa-arrow-up-right-from-square open-icon"></i></button>
+                </div>
+            </div>
             <div class="container left">
                 <p>
                 <div class="content reveal-left">
@@ -181,6 +217,12 @@
             <div class="skill-card tools_and_technologies">
                 <img src="Images/flask-icon.png" draggable="false" class="skill-img-icon">Flask
             </div>
+            <div class="skill-card tools_and_technologies">
+                <img src="Images/django.png" draggable="false" class="skill-img-icon">Django
+            </div>
+            <div class="skill-card tools_and_technologies">
+                <i class="fa-solid fa-database skill-icon"></i>MySQL
+            </div>
             <div class="skill-card industry_knowledge">
                 <i class="fa-solid fa-puzzle-piece skill-icon"></i>Data
                 Structures And Algorithms
@@ -214,6 +256,14 @@
     <section class="awards-section" id="awards">
         <p class="awards-head">Awards</p>
         <div class="award-content fade">
+            <div class="award-card">
+                <i class="fa-solid fa-award award-badge"></i>
+                <p class="award-title">TeckKriti '24</p>
+                <p class="award-issuer">Issued by Rajeev Institute of Technology, Dept of CSE, CSE(AI&ML), ISE · Jan 2024</p>
+                <p class="award-desc">Received an award for exceptional contributions as a coordinator for TechKriti '24, a state-level tech fest hosting Design-A-Thon, CodeSprint, Mind Maze, Ideathon, Elevate Expo, and Battle Bash.</p>
+                <button class="show-certificate-button" onclick="TechConnectCertificate()">Show Certificate<i
+                        class="fa-solid fa-arrow-up-right-from-square open-icon"></i></button>
+            </div>
             <div class="award-card">
                 <i class="fa-solid fa-medal award-badge"></i>
                 <p class="award-title">Coding Hackathon | Tech Connect - 2K23</p>

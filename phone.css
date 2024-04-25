@@ -79,6 +79,12 @@
     width: 80%;
 }
 
+/* Experience Seciton */
+
+.exp-head {
+    font-size: 50px;
+}
+
 /* Education Section */
 
 .edu-head {
@@ -207,6 +213,24 @@
 }
 
 @media screen and (max-width: 425px) {
+    /* Experience */
+
+    .job-title {
+        font-size: 22px;
+    }
+    
+    .company-details {
+        font-size: 14px;
+        color: #505964;
+        padding-bottom: 0;
+    }
+    
+    .duration {
+        font-size: 12px;
+    }
+
+    /* Contact Section */
+
     .form-container {
         width: 90%;
     }
