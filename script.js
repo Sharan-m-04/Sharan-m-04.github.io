@@ -247,7 +247,7 @@ function TechKritiCertificate() {
                 .certificate-img {
                     width: 694px;
                     height: 491px;
-                    background: url('Images/techkritiCertificate.png);
+                    background: url('Images/techkritiCertificate.png');
                     background-size: cover;
                     background-repeat: no-repeat;
                     background-position: 50% 50%;
