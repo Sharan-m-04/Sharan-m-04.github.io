@@ -225,6 +225,43 @@ for (var i = 0; i < btns.length; i++) {
 
 //Awards: Opening image in new tab
 
+function TechKritiCertificate() {
+    const show_certificate0 = window.open("", "_blank");
+    show_certificate1.document.write(`
+        <html>
+        <head>
+            <style>
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                }
+
+                body {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: #2f3030;
+                }
+                
+                .certificate-img {
+                    width: 694px;
+                    height: 491px;
+                    background: url('Images/techkritiCertificate.png');
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: 50% 50%;
+                    border-radius: 10px;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="certificate-img"></div>
+        </body>
+        </html>
+    `);
+}
+
 function TechConnectCertificate() {
     const show_certificate1 = window.open("", "_blank");
     show_certificate1.document.write(`
