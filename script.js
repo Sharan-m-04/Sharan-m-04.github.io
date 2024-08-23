@@ -227,7 +227,7 @@ for (var i = 0; i < btns.length; i++) {
 
 function TechKritiCertificate() {
     const show_certificate0 = window.open("", "_blank");
-    show_certificate1.document.write(`
+    show_certificate0.document.write(`
         <html>
         <head>
             <style>
@@ -247,7 +247,7 @@ function TechKritiCertificate() {
                 .certificate-img {
                     width: 694px;
                     height: 491px;
-                    background: url('Images/techkritiCertificate.png');
+                    background: url('Images/techkritiCertificate.png);
                     background-size: cover;
                     background-repeat: no-repeat;
                     background-position: 50% 50%;
