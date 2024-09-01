@@ -135,7 +135,38 @@ function contactBtn() {
     window.location.href = "#contact-me";
 }
 
+//Certifications: Animations
+
+document.querySelectorAll('.certification-card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-10px)';
+        card.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.2)';
+    });
+
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0)';
+        card.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
+    });
+});
+
+//Certifications: Varify Button
+
+function showNptelCreds() {
+    window.open(
+        "https://nptel.ac.in/noc/E_Certificate/NPTEL24CS57S55710001030592642", "_blank");
+}
+
 //Project: Open Projects
+
+function mediaMorphAIProject() {
+    window.open(
+        "https://github.com/Sharan-m-04/MediaMorph-AI", "_blank");
+}
+
+function objectRecognitionProject() {
+    window.open(
+        "https://github.com/Sharan-m-04/object-recognition-through-image-processing", "_blank");
+}
 
 function inventoryProject() {
     window.open(

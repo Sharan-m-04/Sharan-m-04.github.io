@@ -15,7 +15,7 @@
     <meta property="og:image" content="https://sharan-m-04.github.io/Images/profile.jpg">
     <title>Sharan M | Portfolio Website</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" media="screen and (max-width: 906px)" href="phone.css">
+    <link rel="stylesheet" media="screen and (max-width: 1104px)" href="phone.css">
 </head>
 
 <body>
@@ -30,6 +30,7 @@
                 <li class="navItem"><a href="#about-me" class="navLink">About Me</a></li>
                 <li class="navItem"><a href="#experience" class="navLink">Experience</a></li>
                 <li class="navItem"><a href="#education" class="navLink">Education</a></li>
+                <li class="navItem"><a href="#certifications" class="navLink">Certifications</a></li>
                 <li class="navItem"><a href="#projects" class="navLink">Projects</a></li>
                 <li class="navItem"><a href="#skills" class="navLink">Skills</a></li>
                 <li class="navItem"><a href="#awards" class="navLink">Awards</a></li>
@@ -88,7 +89,7 @@
             <div class="edu-logo-1"></div>
             <p class="inst-name">Visvesvaraya Technological University</p>
             <p class="edu-qualification">Bachelor of Engineering - BE, Computer Science</p>
-            <p class="course-duration">Dec 2021 - Oct 2025</p>
+            <p class="course-duration">Dec 2021 - Jul 2025</p>
             <p class="grade">Grade: Current - 9.0 CGPA</p>
         </div>
         </div>
@@ -101,9 +102,44 @@
         </div>
     </section>
 
+    <section class="certification-section" id="certifications">
+        <p class="certi-head">Certifications</p>
+        <div class="certification-grid">
+            <div class="certification-card">
+                <img src="Images/nptel.png" draggable="false" class="certification-logo">
+                <div class="certification-details">
+                    <h3 class="certification-name">Joy of Computing using Python</h3>
+                    <p class="certification-issuer">NPTEL</p>
+                    <p class="certification-date">May 2024</p>
+                    <button class="varify-button" onclick="showNptelCreds()">Varify<i
+                        class="fa-solid fa-arrow-up-right-from-square open-icon"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="project-section" id="projects">
         <p class="pro-head">Projects</p>
         <div class="timeline">
+            <div class="container left">
+                <p>
+                <div class="content reveal-left">
+                    <h2 class="pro-card-head">MediaMorph AI: Generative AI For Content Creation</h2>
+                    <p class="pro-duration">Jun 2024 - Present</p>
+                    <p class="pro-card-desc">A mini project on Generative AI called 'MediaMorph AI' for our VTU 6th semester curriculum. It generates media content from user prompts. We chose Django for building dynamic web applications, and OpenAI as our AI model.</p>
+                    <button class="visit-project-button" onclick="mediaMorphAIProject()">Visit Project<i
+                            class="fa-solid fa-arrow-up-right-from-square open-icon"></i></button>
+                </div>
+            </div>
+            <div class="container right">
+                <div class="content reveal-right">
+                    <h2 class="pro-card-head">Object Recognition Through Image Processing</h2>
+                    <p class="pro-duration">Jun 2024 - Jun 2024</p>
+                    <p class="pro-card-desc">A mini project on "Object Recognition Through Image Processing" for the 6th sem curriculum at VTU. This project uses OpenCV and NumPy to detect and classify objects in images. Leveraging the SSD MobileNet V3 Large COCO dataset.</p>
+                    <button class="visit-project-button" onclick="objectRecognitionProject()">Visit Project<i
+                            class="fa-solid fa-arrow-up-right-from-square open-icon"></i></button>
+                </div>
+            </div>
             <div class="container left">
                 <p>
                 <div class="content reveal-left">
@@ -238,6 +274,10 @@
                 <img src="Images/cpp-logo.png" draggable="false" class="skill-img-icon">C++
             </div>
             <div class="skill-card industry_knowledge">
+                <i class="fa-solid fa-link skill-icon"></i>
+                API Integration
+            </div>
+            <div class="skill-card industry_knowledge">
                 <i class="fa-brands fa-android skill-icon"></i></i>Android
                 Development
             </div>
@@ -319,7 +359,9 @@
             <ul class="footer-navul">
                 <li class="footer-navItem"><a href="#" class="footer-navLink">Home</a></li>
                 <li class="footer-navItem"><a href="#about-me" class="footer-navLink">About Me</a></li>
+                <li class="footer-navItem"><a href="#experience" class="footer-navLink">Experience</a></li>
                 <li class="footer-navItem"><a href="#education" class="footer-navLink">Education</a></li>
+                <li class="footer-navItem"><a href="#certifications" class="footer-navLink">Certifications</a></li>
                 <li class="footer-navItem"><a href="#projects" class="footer-navLink">Projects</a></li>
                 <li class="footer-navItem"><a href="#skills" class="footer-navLink">Skills</a></li>
                 <li class="footer-navItem"><a href="#awards" class="footer-navLink">Awards</a></li>

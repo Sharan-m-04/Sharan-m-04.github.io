@@ -24,7 +24,7 @@
 }
 
 .navig {
-    height: 253px;
+    height: 322px;
     flex-direction: column;
     transition: all 0.1s ease-out;
 }
@@ -120,6 +120,12 @@
 .edu-logo-2 {
     width: 70px;
     height: 70px;
+}
+
+/* Certification Section */
+
+.certi-head {
+    font-size: 42px;
 }
 
 /* Project Section */
