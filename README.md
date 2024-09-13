@@ -1,3 +1,3 @@
 # My Portfolio Website
 
-My portfolio website, that showcases my experience, skills, achievements projects and much more.
+My portfolio website, that showcases my experience, skills, certifications, achievements, projects and much more.
