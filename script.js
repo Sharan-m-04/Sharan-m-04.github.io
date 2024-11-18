@@ -151,12 +151,22 @@ document.querySelectorAll('.certification-card').forEach(card => {
 
 //Certifications: Varify Button
 
+function showWadhwaniCreds() {
+    window.open(
+        "https://web.certificate.wfglobal.org/en/certificate?certificateId=673aff4c3bdd664ea11d589f", "_blank");
+}
+
 function showNptelCreds() {
     window.open(
         "https://nptel.ac.in/noc/E_Certificate/NPTEL24CS57S55710001030592642", "_blank");
 }
 
 //Project: Open Projects
+
+function inspyrAIProject() {
+    window.open(
+        "https://github.com/Sharan-m-04/Inspyr-AI", "_blank");
+}
 
 function mediaMorphAIProject() {
     window.open(
