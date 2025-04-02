@@ -40,29 +40,29 @@ function profileBtn() {
 
 // Home: paralax effect
 
-var getParallaxContainer = document.querySelector(".home-background");
+// var getParallaxContainer = document.querySelector(".home-background");
 
-function handleMousemove() {
-    var maxWidth = 906;
+// function handleMousemove() {
+//     var maxWidth = 906;
 
-    if (window.innerWidth <= maxWidth) {
-        getParallaxContainer.addEventListener("mousemove", function (e) {
-            let x = e.pageX / window.innerWidth;
-            let y = e.pageY / window.innerHeight;
+//     if (window.innerWidth <= maxWidth) {
+//         getParallaxContainer.addEventListener("mousemove", function (e) {
+//             let x = e.pageX / window.innerWidth;
+//             let y = e.pageY / window.innerHeight;
 
-            this.style.transform = `translate(${0}%, ${0}%)`;
-        });
-    } else {
-        getParallaxContainer.addEventListener("mousemove", function (e) {
-            let x = e.pageX / window.innerWidth;
-            let y = e.pageY / window.innerHeight;
+//             this.style.transform = `translate(${0}%, ${0}%)`;
+//         });
+//     } else {
+//         getParallaxContainer.addEventListener("mousemove", function (e) {
+//             let x = e.pageX / window.innerWidth;
+//             let y = e.pageY / window.innerHeight;
 
-            this.style.transform = `translate(${x * 2}%, ${y * 2}%)`;
-        });
-    }
-}
-handleMousemove();
-window.addEventListener('resize', handleMousemove);
+//             this.style.transform = `translate(${x * 2}%, ${y * 2}%)`;
+//         });
+//     }
+// }
+// handleMousemove();
+// window.addEventListener('resize', handleMousemove);
 
 
 // Home: Typing effect
@@ -151,6 +151,11 @@ document.querySelectorAll('.certification-card').forEach(card => {
 
 //Certifications: Varify Button
 
+function showPyWebICTCreds() {
+    window.open(
+        "https://verify.ictacademy.in/Certificate.aspx?v=bjasgd87qte9uiwhekjhushhehsjdojsofy8fjqoeuiwhdfjbskdjgfusdjcnksxcnuiuw/sdjkhciusdgfu&c=G-2024-G4044-0021", "_blank");
+}
+
 function showWadhwaniCreds() {
     window.open(
         "https://web.certificate.wfglobal.org/en/certificate?certificateId=673aff4c3bdd664ea11d589f", "_blank");
@@ -166,6 +171,11 @@ function showNptelCreds() {
 function inspyrAIProject() {
     window.open(
         "https://github.com/Sharan-m-04/Inspyr-AI", "_blank");
+}
+
+function realTimeLangTranslateProject() {
+    window.open(
+        "https://github.com/Sharan-m-04/RealTime-Language-Translation-Using-Neural-Machine-Translation", "_blank");
 }
 
 function mediaMorphAIProject() {
@@ -265,6 +275,11 @@ for (var i = 0; i < btns.length; i++) {
 }
 
 //Awards: Opening image in new tab
+
+function SkeezyProject() {
+    window.open(
+        "https://www.amazon.in/dp/B0DWH14F66", "_blank");
+}
 
 function TechKritiCertificate() {
     const show_certificate0 = window.open("", "_blank");

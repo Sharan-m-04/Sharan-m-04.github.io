@@ -15,7 +15,7 @@
     <meta property="og:image" content="https://sharan-m-04.github.io/Images/profile.jpg">
     <title>Sharan M | Portfolio Website</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" media="screen and (max-width: 906px)" href="phone.css">
+    <link rel="stylesheet" media="screen and (max-width: 1120px)" href="phone.css">
 </head>
 
 <body>
@@ -45,15 +45,24 @@
     </section>
 
     <section class="home-section">
-        <div class="home-background" id="home-background"></div>
+        <!-- <div class="home-background" id="home-background"></div> -->
         <div class="home-content">
-            <p class="sentence">Hello,</p>
-            <p class="sentence">I'm Sharan M. I'm a</p>
-            <span class="typewrite" data-period="2000"
-                data-type='[ "Computer Science Student.", "Full Stack Developer.", "UI/UX Designer." ]'>
-                <span class="wrap"></span>
-            </span>
-            <button class="downloadResume" onclick="resumeBtn()">Download Resume</button>
+            <div class="leftContent">
+
+                <p class="sentence">Hello,</p>
+                <p class="sentence">I'm Sharan M. I'm a</p>
+                <span class="typewrite" data-period="2000"
+                    data-type='[ "Computer Science Student.", "Full Stack Developer.", "UI/UX Designer." ]'>
+                    <span class="wrap"></span>
+                </span>
+                <button class="downloadResume" onclick="resumeBtn()">Download Resume</button>
+                
+            </div>
+
+            <div class="rightContent">
+                <img src="Images/home_side.png" alt="coding_illustration" draggable="false" class="homeSide">
+            </div>
+
         </div>
     </section>
 
@@ -106,6 +115,16 @@
         <p class="certi-head">Certifications</p>
         <div class="certification-grid">
             <div class="certification-card">
+                <img src="Images/ICTAcademy.png" draggable="false" class="certification-logo">
+                <div class="certification-details">
+                    <h3 class="certification-name">Python Web Developer - Infosys Foundation</h3>
+                    <p class="certification-issuer">ICT Academy</p>
+                    <p class="certification-date">Dec 2024</p>
+                    <button class="varify-button" onclick="showPyWebICTCreds()">Verify<i
+                        class="fa-solid fa-arrow-up-right-from-square open-icon"></i></button>
+                </div>
+            </div>
+            <div class="certification-card">
                 <img src="Images/wadhwaniFoundation.png" draggable="false" class="certification-logo">
                 <div class="certification-details">
                     <h3 class="certification-name">Life Skills (Jeevan Kaushal) 2.0</h3>
@@ -131,8 +150,8 @@
     <section class="project-section" id="projects">
         <p class="pro-head">Projects</p>
         <div class="timeline">
-            <div class="container right">
-                <div class="content reveal-right">
+            <div class="container left">
+                <div class="content reveal-left">
                     <h2 class="pro-card-head">Inspyr AI</h2>
                     <p class="pro-duration">Sep 2024 - Present</p>
                     <p class="pro-card-desc">A project on Generative AI called 'Inspyr AI' for our VTU 7th semester curriculum. It generates images, and websites from user prompts. We chose Django for its power and efficiency in building dynamic web applications, and OpenAI as our AI model.</p>
@@ -140,8 +159,16 @@
                             class="fa-solid fa-arrow-up-right-from-square open-icon"></i></button>
                 </div>
             </div>
+            <div class="container right">
+                <div class="content reveal-right">
+                    <h2 class="pro-card-head">Real-Time Language Translation Using Neural Machine Translation</h2>
+                    <p class="pro-duration">Dec 2024 - Jan 2025</p>
+                    <p class="pro-card-desc">Internship project on real-time language translation using Neural Machine Translation (NMT). This Tkinter-based desktop application translates text and images in real time using Google Translator and EasyOCR. It supports multiple languages and features a user-friendly interface with automatic and manual translation options.</p>
+                    <button class="visit-project-button" onclick="realTimeLangTranslateProject()">Visit Project<i
+                            class="fa-solid fa-arrow-up-right-from-square open-icon"></i></button>
+                </div>
+            </div>
             <div class="container left">
-                <p>
                 <div class="content reveal-left">
                     <h2 class="pro-card-head">MediaMorph AI: Generative AI For Content Creation</h2>
                     <p class="pro-duration">Jun 2024 - Aug 2024</p>
@@ -160,7 +187,6 @@
                 </div>
             </div>
             <div class="container left">
-                <p>
                 <div class="content reveal-left">
                     <h2 class="pro-card-head">Inventory Management System</h2>
                     <p class="pro-duration">Feb 2024 - Mar 2024</p>
@@ -180,7 +206,6 @@
                 </div>
             </div>
             <div class="container left">
-                <p>
                 <div class="content reveal-left">
                     <h2 class="pro-card-head">My Portfolio Website</h2>
                     <p class="pro-duration">Dec 2023 - Jan 2024</p>
@@ -316,6 +341,14 @@
     <section class="awards-section" id="awards">
         <p class="awards-head">Awards</p>
         <div class="award-content fade">
+            <div class="award-card">
+                <i class="fa-solid fa-book-bookmark award-badge"></i>
+                <p class="award-title">Published author of 'UI/UX Lab Manual'</p>
+                <p class="award-issuer">Self-Published · Feb 2025</p>
+                <p class="award-desc">This lab manual provides a structured approach to learning UI/UX design using Figma, covering prototyping. It includes practical guidelines to help students and beginners understand the design process step by step.</p>
+                <button class="show-certificate-button" onclick="LabManualPublication()">Show Publication<i
+                        class="fa-solid fa-arrow-up-right-from-square open-icon"></i></button>
+            </div>
             <div class="award-card">
                 <i class="fa-solid fa-award award-badge"></i>
                 <p class="award-title">TeckKriti '24</p>

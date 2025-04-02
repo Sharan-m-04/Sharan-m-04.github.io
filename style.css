@@ -130,7 +130,9 @@ html {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: start;
+    padding-left: 10%;
+    background-color: #f8fbff;
 }
 
 .home-background {
@@ -145,15 +147,34 @@ html {
 }
 
 .home-content {
+    display: flex;
+    width: 100%;
+}
+
+.leftContent {
     z-index: 1;
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-direction: column;
+    width: 60%;
+}
+
+.rightContent {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.homeSide {
+    width: 500px;
+    height: 500px;
+    margin-right: 25%;
+    margin-top: 10%;
 }
 
 .sentence {
-    text-align: center;
+    text-align: left;
     z-index: 1;
     font-size: 56px;
     font-weight: bold;
@@ -165,7 +186,7 @@ html {
 }
 
 .typewrite {
-    text-align: center;
+    text-align: left;
     z-index: 1;
 }
 
@@ -383,7 +404,7 @@ html {
 
 .certification-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
     gap: 20px;
 }
 
@@ -681,7 +702,7 @@ html {
 /* Awards Section */
 
 .awards-section {
-    height: 100vh;
+    min-height: 100vh;
     background: #edf4ff;
     display: flex;
     flex-direction: column;
@@ -697,8 +718,9 @@ html {
 }
 
 .award-content {
+    width: 80%;
     display: grid;
-    grid-template-columns: 20% 20% 20% 20%;
+    grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
     justify-content: center;
     gap: 10px;
@@ -1054,7 +1076,40 @@ textarea {
 
 @media screen and (max-width: 1805px) {
     .award-content {
-        grid-template-columns: 30% 30% 30%;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 1282px) {
+    /* .home-content {
+        flex-direction: column-reverse;
+        align-items: center;
+    } */
+
+    .home-content {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .home-section {
+        align-items: center;
+        padding-left: 0;
+    }
+
+    .leftContent {
+        align-items: center;
+    }
+
+    .sentence {
+        text-align: center;
+    }
+
+    .typewrite {
+        text-align: center;
+    }
+
+    .rightContent {
+        display: none;
     }
 }
 
