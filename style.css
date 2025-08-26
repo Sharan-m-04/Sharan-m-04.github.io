@@ -257,6 +257,7 @@ html {
 }
 
 .exp-timeline {
+    max-width: 1092px;
     position: relative;
     margin-left: 40px;
 }
@@ -747,6 +748,7 @@ html {
 }
 
 .award-badge {
+    color: #bad5ff;
     font-size: 60px;
     margin: 10px;
 }
