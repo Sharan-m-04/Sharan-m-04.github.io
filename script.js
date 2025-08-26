@@ -156,11 +156,6 @@ function showPyWebICTCreds() {
         "https://verify.ictacademy.in/Certificate.aspx?v=bjasgd87qte9uiwhekjhushhehsjdojsofy8fjqoeuiwhdfjbskdjgfusdjcnksxcnuiuw/sdjkhciusdgfu&c=G-2024-G4044-0021", "_blank");
 }
 
-function showWadhwaniCreds() {
-    window.open(
-        "https://web.certificate.wfglobal.org/en/certificate?certificateId=673aff4c3bdd664ea11d589f", "_blank");
-}
-
 function showNptelCreds() {
     window.open(
         "https://nptel.ac.in/noc/E_Certificate/NPTEL24CS57S55710001030592642", "_blank");
@@ -276,7 +271,7 @@ for (var i = 0; i < btns.length; i++) {
 
 //Awards: Opening image in new tab
 
-function SkeezyProject() {
+function LabManualPublication() {
     window.open(
         "https://www.amazon.in/dp/B0DWH14F66", "_blank");
 }
