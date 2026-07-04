@@ -1,448 +1,670 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="sharan m, sharan portfolio website, sharan portfolio, sharan m github, portfolio, web developer, ui ux designer, cs engineering students portfolio" />
-    <meta name="description" content="My Portfolio Website, that showcases my skills, achievements, projects, etc.,">
+    <title>Sharan M — Full Stack Developer &amp; UI/UX Designer | Portfolio</title>
+    <meta name="description"
+        content="Portfolio of Sharan M — Full Stack Developer at StoreHippo and UI/UX Designer. Projects, experience, skills, certifications, awards and contact.">
+    <meta name="keywords"
+        content="sharan m, sharan portfolio website, sharan portfolio, sharan m github, portfolio, web developer, ui ux designer, cs engineering students portfolio">
+    <meta name="author" content="Sharan M">
+    <link rel="canonical" href="https://sharan-m-04.github.io/">
+    <meta name="theme-color" content="#1B1B1F">
+
+    <!-- Open Graph -->
     <meta property="og:url" content="https://sharan-m-04.github.io/">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Sharan M | Portfolio Website">
-    <meta property="og:site_name" content="https://sharan-m-04.github.io/" />
+    <meta property="og:title" content="Sharan M — Full Stack Developer &amp; UI/UX Designer | Portfolio">
+    <meta property="og:site_name" content="Sharan M | Portfolio">
     <meta property="og:description"
-        content="My Portfolio Website, that showcases my skills, achievements, projects, etc.,">
-    <meta property="og:image" content="https://sharan-m-04.github.io/Images/profile.jpg">
-    <title>Sharan M | Portfolio Website</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" media="screen and (max-width: 1120px)" href="phone.css">
+        content="Portfolio of Sharan M — Full Stack Developer at StoreHippo and UI/UX Designer. Projects, experience, skills, certifications, awards and contact.">
+    <meta property="og:image" content="https://sharan-m-04.github.io/Images/profile.jpeg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sharan M — Full Stack Developer &amp; UI/UX Designer | Portfolio">
+    <meta name="twitter:description"
+        content="Portfolio of Sharan M — Full Stack Developer at StoreHippo and UI/UX Designer. Projects, experience, skills, certifications, awards and contact.">
+    <meta name="twitter:image" content="https://sharan-m-04.github.io/Images/profile.jpeg">
+    <meta name="twitter:creator" content="@Sharan_M_">
+
+    <link rel="icon" href="Images/favicon.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Sharan M",
+        "url": "https://sharan-m-04.github.io/",
+        "image": "https://sharan-m-04.github.io/Images/profile.jpeg",
+        "jobTitle": "Junior Software Developer",
+        "worksFor": { "@type": "Organization", "name": "StoreHippo" },
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "Visvesvaraya Technological University" },
+        "email": "mailto:msharan.hnp@gmail.com",
+        "knowsAbout": ["Full Stack Development", "UI/UX Design", "Node.js", "AngularJS", "Vue.js", "Python", "Django", "Android Development"],
+        "sameAs": [
+            "https://github.com/Sharan-m-04",
+            "https://www.linkedin.com/in/sharanm04",
+            "https://www.instagram.com/its_sharan_m/",
+            "https://twitter.com/Sharan_M_"
+        ]
+    }
+    </script>
 </head>
 
 <body>
-    <button type="button" class="rtt" id="rToTop">
-        <i class="fa-solid fa-arrow-up topArrow"></i>
-    </button>
-    <section class="nav-section">
-        <nav class="navig h-nav-resp">
-            <div class="profilePic" onclick="profileBtn()"></div>
-            <ul class="navul v-class-resp">
-                <li class="navItem"><a href="#" class="navLink">Home</a></li>
-                <li class="navItem"><a href="#about-me" class="navLink">About Me</a></li>
-                <li class="navItem"><a href="#experience" class="navLink">Experience</a></li>
-                <li class="navItem"><a href="#education" class="navLink">Education</a></li>
-                <li class="navItem"><a href="#certifications" class="navLink">Certifications</a></li>
-                <li class="navItem"><a href="#projects" class="navLink">Projects</a></li>
-                <li class="navItem"><a href="#skills" class="navLink">Skills</a></li>
-                <li class="navItem"><a href="#awards" class="navLink">Awards</a></li>
-                <li class="navItem"><a href="#contact-me" class="navLink">Contact Me</a></li>
+    <!-- Decorative tool UI: rulers + canvas grid (desktop only) -->
+    <div class="ruler ruler-x" id="ruler-x" aria-hidden="true"></div>
+    <div class="ruler ruler-y" id="ruler-y" aria-hidden="true"></div>
+    <div class="canvas-grid" id="canvas-grid" aria-hidden="true"></div>
+
+    <!-- Figma-style custom cursor (pointer devices only) -->
+    <div class="cursor" id="cursor" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" class="cursor-arrow-svg">
+            <path d="M5.2 3.1 L19.8 11.6 L12.9 13.1 L9.4 19.9 Z" class="cursor-arrow" />
+        </svg>
+        <span class="cursor-caret" id="cursor-caret"></span>
+    </div>
+    <div class="cursor-label mono" id="cursor-label" aria-hidden="true"></div>
+
+    <header class="site-header">
+        <nav class="nav" aria-label="Main navigation">
+            <a class="nav-brand" href="https://sharan-m-04.github.io/">
+                <img src="Images/profile.jpeg" alt="Sharan M profile photo" class="nav-avatar" width="32" height="32">
+                <span class="nav-brand-name mono">sharan.m</span>
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about-me" class="nav-link">About Me</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#certifications" class="nav-link">Certifications</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#awards" class="nav-link">Awards</a></li>
+                <li><a href="#contact-me" class="nav-link">Contact Me</a></li>
             </ul>
-            <div class="burger">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
+            <div class="nav-actions">
+                <button type="button" class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false"
+                    aria-controls="nav-links">
+                    <span class="burger-line"></span>
+                    <span class="burger-line"></span>
+                    <span class="burger-line"></span>
+                </button>
             </div>
         </nav>
-    </section>
+    </header>
 
-    <section class="home-section">
-        <!-- <div class="home-background" id="home-background"></div> -->
-        <div class="home-content">
-            <div class="leftContent">
+    <main id="main">
 
-                <p class="sentence">Hello,</p>
-                <p class="sentence">I'm Sharan M. I'm a</p>
-                <span class="typewrite" data-period="2000"
-                    data-type='[ "Computer Science Student.", "Full Stack Developer.", "UI/UX Designer." ]'>
-                    <span class="wrap"></span>
+        <!-- ============ HERO ============ -->
+        <section class="hero frame" id="home" data-label="Frame · Hero">
+            <div class="hero-inner">
+                <div class="hero-copy">
+                    <p class="hero-hello mono"><span class="accent">//</span> Hello,</p>
+                    <h1 class="hero-title">I'm <span class="accent">Sharan M</span></h1>
+                    <p class="hero-sub">I'm a
+                        <span class="typewrite" data-period="2000"
+                            data-type='["Software Developer.", "Problem Solver", "UI/UX Designer.", "Full Stack Developer."]'>
+                            <span class="wrap">Software Developer.</span>
+                        </span>
+                    </p>
+                    <div class="hero-cta">
+                        <a class="btn btn-primary" href="Downloads/Sharan&#39;sResume.pdf" download>
+                            <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>&nbsp; Download Resume
+                        </a>
+                        <a class="btn btn-ghost" href="#contact-me">Contact Me</a>
+                    </div>
+                    <p class="hero-meta mono">design <span class="accent">×</span> code — Bengaluru, IN</p>
+                </div>
+                <div class="hero-stage" aria-hidden="true">
+                    <div id="hero-canvas" class="hero-canvas"></div>
+                    <!-- Static fallback artboards (shown when 3D is off: mobile / reduced motion / no WebGL) -->
+                    <div class="hero-fallback" id="hero-fallback">
+                        <div class="artboard artboard-3"></div>
+                        <div class="artboard artboard-2"></div>
+                        <div class="artboard artboard-1">
+                            <span class="handle tl"></span><span class="handle tr"></span>
+                            <span class="handle bl"></span><span class="handle br"></span>
+                            <span class="artboard-tag mono">1440 × 900</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ ABOUT ============ -->
+        <section class="section frame" id="about-me" data-label="Frame · About">
+            <header class="section-head">
+                <span class="section-index mono">01</span>
+                <h2 class="section-title">About Me</h2>
+            </header>
+            <div class="about-layout">
+                <div class="about-card" data-label="Component · Bio">
+                    <p class="about-text">I'm a Junior Software Developer at StoreHippo and a Computer Science
+                        Engineering graduate from Visvesvaraya Technological University (9.17 CGPA), skilled in full stack
+                        web development, UI/UX design, and Android development. I've interned as a full stack developer at
+                        Varcons Technologies, won a UI/UX Design Hackathon, secured an all-India rank of 2885 at Coding
+                        Ninjas Codekaze-Sep'24, coordinated events like Design-a-thon and Code Sprint at the state-level
+                        tech fest TechKriti '24, and completed NPTEL's "The Joy of Computing using Python" (IIT
+                        Madras).</p>
+                    <a class="btn btn-primary" href="#contact-me">Contact Me</a>
+                </div>
+                <div class="code-panel mono" data-label="Component · Config" aria-hidden="true" data-mouse-depth="7">
+                    <div class="code-chrome">
+                        <span class="chrome-dot"></span><span class="chrome-dot"></span><span
+                            class="chrome-dot"></span>
+                        <span class="code-tab">sharan.config.js</span>
+                    </div>
+                    <pre class="code-body"><code><span class="code-line"><span class="tok-kw">const</span> <span class="tok-var">sharan</span> <span class="tok-punc">=</span> <span class="tok-punc">{</span></span>
+<span class="code-line">  <span class="tok-prop">role</span><span class="tok-punc">:</span> <span class="tok-str">'Junior Software Developer'</span><span class="tok-punc">,</span></span>
+<span class="code-line">  <span class="tok-prop">stack</span><span class="tok-punc">:</span> <span class="tok-punc">[</span><span class="tok-str">'Python'</span><span class="tok-punc">,</span> <span class="tok-str">'Django'</span><span class="tok-punc">,</span> <span class="tok-str">'Node'</span><span class="tok-punc">,</span> <span class="tok-str">'Vue'</span><span class="tok-punc">,</span> <span class="tok-str">'Angular'</span><span class="tok-punc">]</span><span class="tok-punc">,</span></span>
+<span class="code-line">  <span class="tok-prop">education</span><span class="tok-punc">:</span> <span class="tok-str">'VTU · 9.17 CGPA'</span><span class="tok-punc">,</span></span>
+<span class="code-line"><span class="tok-punc">};</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="tok-kw">export default</span> <span class="tok-var">sharan</span><span class="tok-punc">;</span></span></code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ EXPERIENCE ============ -->
+        <section class="section frame" id="experience" data-label="Frame · Experience">
+            <header class="section-head">
+                <span class="section-index mono">02</span>
+                <h2 class="section-title">Experience</h2>
+            </header>
+            <div class="xp-list">
+                <article class="xp-card" data-label="Component · ExperienceCard">
+                    <p class="xp-commit mono" aria-hidden="true"><span class="xp-sha">f3a9c2d</span> ·
+                        feat(career): join StoreHippo as Junior Dev <span class="xp-branch">main</span></p>
+                    <div class="xp-top">
+                        <h3 class="xp-role">Junior Software Developer</h3>
+                        <span class="xp-duration mono">Jun 2025 – Present</span>
+                    </div>
+                    <p class="xp-company mono">StoreHippo · Full-time · Remote</p>
+                    <p class="xp-desc">Junior Software Developer at StoreHippo, specializing in building AI-driven
+                        solutions like Agentic AI, Help Center, streamlined onboarding (reduced from hours to minutes),
+                        and AI Chatbots, alongside developing and maintaining scalable web applications with Node.js,
+                        Angular.js, and Vue.js.</p>
+                </article>
+                <article class="xp-card" data-label="Component · ExperienceCard">
+                    <p class="xp-commit mono" aria-hidden="true"><span class="xp-sha">b71e04a</span> ·
+                        feat(career): full-stack internship @ Varcons <span class="xp-branch">intern</span></p>
+                    <div class="xp-top">
+                        <h3 class="xp-role">Full Stack Web Developer</h3>
+                        <span class="xp-duration mono">Dec 2023 – Jan 2024</span>
+                    </div>
+                    <p class="xp-company mono">Varcons Technologies Pvt. Ltd. · Internship · Remote</p>
+                    <p class="xp-desc">Full Stack Developer Intern at Varcons Technologies Pvt. Ltd. Contributed as a
+                        Full Stack Developer Intern at Varcons Technologies, engaging in end-to-end web development
+                        projects. Enhanced skills in both front-end and back-end technologies.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ============ EDUCATION ============ -->
+        <section class="section frame" id="education" data-label="Frame · Education">
+            <header class="section-head">
+                <span class="section-index mono">03</span>
+                <h2 class="section-title">Education</h2>
+            </header>
+            <div class="edu-grid">
+                <article class="edu-card" data-label="Component · EducationCard">
+                    <img src="Images/vtu-logo.png" alt="Visvesvaraya Technological University logo" class="edu-logo"
+                        width="72" height="72" loading="lazy">
+                    <h3 class="edu-name">Visvesvaraya Technological University</h3>
+                    <p class="edu-degree">Bachelor of Engineering - BE, Computer Science</p>
+                    <p class="edu-duration mono">Dec 2021 – Jun 2025</p>
+                    <p class="edu-grade mono">Grade: <span class="accent">9.17 CGPA</span></p>
+                </article>
+                <article class="edu-card" data-label="Component · EducationCard">
+                    <img src="Images/vspu-logo.png" alt="Vidya Soudha PU College logo" class="edu-logo" width="72"
+                        height="72" loading="lazy">
+                    <h3 class="edu-name">Vidya Soudha PU College</h3>
+                    <p class="edu-degree">Associate's degree, Science</p>
+                    <p class="edu-duration mono">May 2019 – Sep 2021</p>
+                    <p class="edu-grade mono">Grade: <span class="accent">89.83%</span></p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ============ CERTIFICATIONS ============ -->
+        <section class="section frame" id="certifications" data-label="Frame · Certifications">
+            <header class="section-head">
+                <span class="section-index mono">04</span>
+                <h2 class="section-title">Certifications</h2>
+            </header>
+            <div class="cert-grid">
+                <article class="cert-card" data-label="Component · CertificateCard">
+                    <img src="Images/ICTAcademy.png" alt="ICT Academy logo" class="cert-logo" width="56" height="56"
+                        loading="lazy">
+                    <div class="cert-body">
+                        <h3 class="cert-name">Python Web Developer - Infosys Foundation</h3>
+                        <p class="cert-issuer mono">ICT Academy · Dec 2024</p>
+                        <a class="link-action mono"
+                            href="https://verify.ictacademy.in/Certificate.aspx?v=bjasgd87qte9uiwhekjhushhehsjdojsofy8fjqoeuiwhdfjbskdjgfusdjcnksxcnuiuw/sdjkhciusdgfu&amp;c=G-2024-G4044-0021"
+                            target="_blank" rel="noopener">Verify <i class="fa-solid fa-arrow-up-right-from-square"
+                                aria-hidden="true"></i></a>
+                    </div>
+                </article>
+                <article class="cert-card" data-label="Component · CertificateCard">
+                    <img src="Images/nptel.png" alt="NPTEL logo" class="cert-logo" width="56" height="56"
+                        loading="lazy">
+                    <div class="cert-body">
+                        <h3 class="cert-name">Joy of Computing using Python</h3>
+                        <p class="cert-issuer mono">NPTEL · May 2024</p>
+                        <a class="link-action mono"
+                            href="https://nptel.ac.in/noc/E_Certificate/NPTEL24CS57S55710001030592642" target="_blank"
+                            rel="noopener">Verify <i class="fa-solid fa-arrow-up-right-from-square"
+                                aria-hidden="true"></i></a>
+                    </div>
+                </article>
+                <article class="cert-card" data-label="Component · CertificateCard">
+                    <img src="Images/oracle.svg" alt="Oracle logo" class="cert-logo" width="56" height="56"
+                        loading="lazy">
+                    <div class="cert-body">
+                        <h3 class="cert-name">OCI 2025 Certified AI Foundations Associate</h3>
+                        <p class="cert-issuer mono">Oracle · Oct 2025 – Oct 2027</p>
+                        <a class="link-action mono"
+                            href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=1B4DF5705775E509888E4AB701737AE55473D190EA0FE2C1520AFE56F954691A"
+                            target="_blank" rel="noopener">Verify <i class="fa-solid fa-arrow-up-right-from-square"
+                                aria-hidden="true"></i></a>
+                    </div>
+                </article>
+                <article class="cert-card" data-label="Component · CertificateCard">
+                    <img src="Images/oracle.svg" alt="Oracle logo" class="cert-logo" width="56" height="56"
+                        loading="lazy">
+                    <div class="cert-body">
+                        <h3 class="cert-name">OCI 2025 Certified Generative AI Professional</h3>
+                        <p class="cert-issuer mono">Oracle · Oct 2025 – Oct 2027</p>
+                        <a class="link-action mono"
+                            href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=89A9BD473DAE09E91DCDAB974F8D5E7002F0A1C2BF3766B4F43F6BF3FB4B3092"
+                            target="_blank" rel="noopener">Verify <i class="fa-solid fa-arrow-up-right-from-square"
+                                aria-hidden="true"></i></a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ============ PROJECTS ============ -->
+        <section class="section frame" id="projects" data-label="Frame · Projects">
+            <header class="section-head">
+                <span class="section-index mono">05</span>
+                <h2 class="section-title">Projects</h2>
+                <span class="projects-progress mono" id="projects-progress" aria-hidden="true" hidden>
+                    <span id="projects-progress-count">01 / 13</span>
+                    <span class="progress-track"><span class="progress-fill"
+                            id="projects-progress-fill"></span></span>
                 </span>
-                <button class="downloadResume" onclick="resumeBtn()">Download Resume</button>
-                
-            </div>
-
-            <div class="rightContent">
-                <img src="Images/home_side.png" alt="coding_illustration" draggable="false" class="homeSide">
-            </div>
-
-        </div>
-    </section>
-
-    <section class="abt-section" id="about-me">
-        <div class="abt-div reveal fade-pop">
-            <p class="abt-head">About Me</p>
-            <p class="abt-cont">I'm a Computer Science and Engineering Student at Visvesvaraya Technological University.
-                Winner of UI/UX Design Hackathon, Full Stack Developer and Android Developer. I Like to
-                Learn and Explore New Frontiers in Technology. I Enjoy Solving Real-World Problems Using Programming.
-            </p>
-            <button class="downloadResume" onclick="contactBtn()">Contact Me</button>
-        </div>
-    </section>
-
-    <section class="exp-section" id="experience">
-        <p class="exp-head reveal fade-pop">Experience</p>
-        <div class="exp-timeline reveal fade-pop">
-            <div class="exp-card reveal fade-pop">
-                <div class="job-title">Junior Software Developer</div>
-                <div class="company-details">StoreHippo · Full-time · Remote</div>
-                <div class="duration">Jun 2025 - Present</div>
-                <div class="job-description">Junior Software Developer at StoreHippo, specializing in building AI-driven solutions like Agentic AI, Help Center, streamlined onboarding (reduced from hours to minutes), and AI Chatbots, alongside developing and maintaining scalable web applications with Node.js, Angular.js, and Vue.js.</div>
-            </div>
-        </div>
-        <div class="exp-timeline reveal fade-pop">
-            <div class="exp-card reveal fade-pop">
-                <div class="job-title">Full Stack Web Developer</div>
-                <div class="company-details">Varcons Technologies Pvt. Ltd. · Internship · Remote</div>
-                <div class="duration">Dec 2023 - Jan 2024</div>
-                <div class="job-description">Full Stack Developer Intern at Varcons Technologies Pvt. Ltd. Contributed
-                    as
-                    a Full Stack Developer Intern at Varcons Technologies, engaging in end-to-end web development
-                    projects. Enhanced skills in both front-end and back-end technologies.</div>
-            </div>
-        </div>
-    </section>
-
-    <section class="edu-section" id="education">
-        <p class="edu-head">Education</p>
-        <div class="edu-card reveal fade-pop">
-            <div class="edu-logo-1"></div>
-            <p class="inst-name">Visvesvaraya Technological University</p>
-            <p class="edu-qualification">Bachelor of Engineering - BE, Computer Science</p>
-            <p class="course-duration">Dec 2021 - Jun 2025</p>
-            <p class="grade">Grade: 9.17 CGPA</p>
-        </div>
-        </div>
-        <div class="edu-card reveal fade-pop">
-            <div class="edu-logo-2"></div>
-            <p class="inst-name">Vidya Soudha PU College</p>
-            <p class="edu-qualification">Associate's degree, Science</p>
-            <p class="course-duration">May 2019 - Sep 2021</p>
-            <p class="grade">Grade: 89.83%</p>
-        </div>
-    </section>
-
-    <section class="certification-section" id="certifications">
-        <p class="certi-head">Certifications</p>
-        <div class="certification-grid">
-            <div class="certification-card">
-                <img src="Images/ICTAcademy.png" draggable="false" class="certification-logo">
-                <div class="certification-details">
-                    <h3 class="certification-name">Python Web Developer - Infosys Foundation</h3>
-                    <p class="certification-issuer">ICT Academy</p>
-                    <p class="certification-date">Dec 2024</p>
-                    <button class="varify-button" onclick="showPyWebICTCreds()">Verify<i
-                        class="fa-solid fa-arrow-up-right-from-square open-icon"></i></button>
-                </div>
-            </div>
-            <div class="certification-card">
-                <img src="Images/nptel.png" draggable="false" class="certification-logo">
-                <div class="certification-details">
-                    <h3 class="certification-name">Joy of Computing using Python</h3>
-                    <p class="certification-issuer">NPTEL</p>
-                    <p class="certification-date">May 2024</p>
-                    <button class="varify-button" onclick="showNptelCreds()">Verify<i
-                        class="fa-solid fa-arrow-up-right-from-square open-icon"></i></button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="project-section" id="projects">
-        <p class="pro-head">Projects</p>
-        <div class="timeline">
-            <div class="container left">
-                <div class="content reveal-left">
-                    <h2 class="pro-card-head">Inspyr AI</h2>
-                    <p class="pro-duration">Sep 2024 - Present</p>
-                    <p class="pro-card-desc">A project on Generative AI called 'Inspyr AI' for our VTU 7th semester curriculum. It generates images, and websites from user prompts. We chose Django for its power and efficiency in building dynamic web applications, and OpenAI as our AI model.</p>
-                    <button class="visit-project-button" onclick="inspyrAIProject()">Visit Project<i
-                            class="fa-solid fa-arrow-up-right-from-square open-icon"></i></button>
-                </div>
-            </div>
-            <div class="container right">
-                <div class="content reveal-right">
-                    <h2 class="pro-card-head">Real-Time Language Translation Using Neural Machine Translation</h2>
-                    <p class="pro-duration">Dec 2024 - Jan 2025</p>
-                    <p class="pro-card-desc">Internship project on real-time language translation using Neural Machine Translation (NMT). This Tkinter-based desktop application translates text and images in real time using Google Translator and EasyOCR. It supports multiple languages and features a user-friendly interface with automatic and manual translation options.</p>
-                    <button class="visit-project-button" onclick="realTimeLangTranslateProject()">Visit Project<i
-                            class="fa-solid fa-arrow-up-right-from-square open-icon"></i></button>
-                </div>
-            </div>
-            <div class="container left">
-                <div class="content reveal-left">
-                    <h2 class="pro-card-head">MediaMorph AI: Generative AI For Content Creation</h2>
-                    <p class="pro-duration">Jun 2024 - Aug 2024</p>
-                    <p class="pro-card-desc">A mini project on Generative AI called 'MediaMorph AI' for our VTU 6th semester curriculum. It generates media content from user prompts. We chose Django for building dynamic web applications, and OpenAI as our AI model.</p>
-                    <button class="visit-project-button" onclick="mediaMorphAIProject()">Visit Project<i
-                            class="fa-solid fa-arrow-up-right-from-square open-icon"></i></button>
-                </div>
-            </div>
-            <div class="container right">
-                <div class="content reveal-right">
-                    <h2 class="pro-card-head">Object Recognition Through Image Processing</h2>
-                    <p class="pro-duration">Jun 2024 - Jun 2024</p>
-                    <p class="pro-card-desc">A mini project on "Object Recognition Through Image Processing" for the 6th sem curriculum at VTU. This project uses OpenCV and NumPy to detect and classify objects in images. Leveraging the SSD MobileNet V3 Large COCO dataset.</p>
-                    <button class="visit-project-button" onclick="objectRecognitionProject()">Visit Project<i
-                            class="fa-solid fa-arrow-up-right-from-square open-icon"></i></button>
-                </div>
-            </div>
-            <div class="container left">
-                <div class="content reveal-left">
-                    <h2 class="pro-card-head">Inventory Management System</h2>
-                    <p class="pro-duration">Feb 2024 - Mar 2024</p>
-                    <p class="pro-card-desc">A mini project for VTU's 5th Semester: an Inventory Management System. Built with Django, MySQL, HTML, CSS, and JavaScript, it tracks inventory, transactions, and stock levels, alerting for low stock. Boosts productivity with a user-friendly interface.
+            </header>
+            <div class="project-grid">
+                <article class="project-card" data-label="Component · ProjectCard" data-stack="AI · Web App">
+                    <h3 class="project-name">AI Trip Planner</h3>
+                    <p class="project-duration mono">Jul 2025 – Sep 2025</p>
+                    <p class="project-desc">An AI-powered web application that generates personalized travel itineraries
+                        based on user preferences like destination, budget, duration, and interests. It uses intelligent
+                        algorithms to curate day-by-day travel plans and integrates with live booking systems for
+                        flights, hotels, and activities — combining automation, personalization, and real-time data to
+                        simplify trip planning from start to finish.</p>
+                    <a class="link-action mono" href="https://github.com/ModhakNatesh/ai-trip-planner" target="_blank"
+                        rel="noopener">Visit Project <i class="fa-solid fa-arrow-up-right-from-square"
+                            aria-hidden="true"></i></a>
+                </article>
+                <article class="project-card" data-label="Component · ProjectCard" data-stack="Django · OpenAI">
+                    <h3 class="project-name">Inspyr AI</h3>
+                    <p class="project-duration mono">Sep 2024 – May 2025</p>
+                    <p class="project-desc">A project on Generative AI called 'Inspyr AI' for our VTU 7th semester
+                        curriculum. It generates images, and websites from user prompts. We chose Django for its power
+                        and efficiency in building dynamic web applications, and OpenAI as our AI model.</p>
+                    <a class="link-action mono" href="https://github.com/Sharan-m-04/Inspyr-AI" target="_blank"
+                        rel="noopener">Visit Project <i class="fa-solid fa-arrow-up-right-from-square"
+                            aria-hidden="true"></i></a>
+                </article>
+                <article class="project-card" data-label="Component · ProjectCard"
+                    data-stack="Python · Tkinter · EasyOCR">
+                    <h3 class="project-name">Real-Time Language Translation Using Neural Machine Translation</h3>
+                    <p class="project-duration mono">Dec 2024 – Jan 2025</p>
+                    <p class="project-desc">Internship project on real-time language translation using Neural Machine
+                        Translation (NMT). This Tkinter-based desktop application translates text and images in real
+                        time using Google Translator and EasyOCR. It supports multiple languages and features a
+                        user-friendly interface with automatic and manual translation options.</p>
+                    <a class="link-action mono"
+                        href="https://github.com/Sharan-m-04/RealTime-Language-Translation-Using-Neural-Machine-Translation"
+                        target="_blank" rel="noopener">Visit Project <i
+                            class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                </article>
+                <article class="project-card" data-label="Component · ProjectCard" data-stack="Django · OpenAI">
+                    <h3 class="project-name">MediaMorph AI: Generative AI For Content Creation</h3>
+                    <p class="project-duration mono">Jun 2024 – Aug 2024</p>
+                    <p class="project-desc">A mini project on Generative AI called 'MediaMorph AI' for our VTU 6th
+                        semester curriculum. It generates media content from user prompts. We chose Django for building
+                        dynamic web applications, and OpenAI as our AI model.</p>
+                    <a class="link-action mono" href="https://github.com/Sharan-m-04/MediaMorph-AI" target="_blank"
+                        rel="noopener">Visit Project <i class="fa-solid fa-arrow-up-right-from-square"
+                            aria-hidden="true"></i></a>
+                </article>
+                <article class="project-card" data-label="Component · ProjectCard" data-stack="OpenCV · NumPy">
+                    <h3 class="project-name">Object Recognition Through Image Processing</h3>
+                    <p class="project-duration mono">Jun 2024 – Jun 2024</p>
+                    <p class="project-desc">A mini project on "Object Recognition Through Image Processing" for the 6th
+                        sem curriculum at VTU. This project uses OpenCV and NumPy to detect and classify objects in
+                        images. Leveraging the SSD MobileNet V3 Large COCO dataset.</p>
+                    <a class="link-action mono"
+                        href="https://github.com/Sharan-m-04/object-recognition-through-image-processing"
+                        target="_blank" rel="noopener">Visit Project <i
+                            class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                </article>
+                <article class="project-card" data-label="Component · ProjectCard" data-stack="Django · MySQL · JS">
+                    <h3 class="project-name">Inventory Management System</h3>
+                    <p class="project-duration mono">Feb 2024 – Mar 2024</p>
+                    <p class="project-desc">A mini project for VTU's 5th Semester: an Inventory Management System.
+                        Built with Django, MySQL, HTML, CSS, and JavaScript, it tracks inventory, transactions, and
+                        stock levels, alerting for low stock. Boosts productivity with a user-friendly interface.</p>
+                    <a class="link-action mono" href="https://github.com/Sharan-m-04/Inventory-Management-System"
+                        target="_blank" rel="noopener">Visit Project <i
+                            class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                </article>
+                <article class="project-card" data-label="Component · ProjectCard" data-stack="Django · HTML · CSS">
+                    <h3 class="project-name">Ignyt - The Beer Lounge</h3>
+                    <p class="project-duration mono">Jan 2024 – Jan 2024</p>
+                    <p class="project-desc">Internship Project at Varcons Technologies Pvt. Ltd.: Collaborated on
+                        developing a dynamic web platform for the client 'Ignyt - The Beer Lounge,'. Leveraged Django
+                        to enhance user experience and streamline pub operations.</p>
+                    <a class="link-action mono" href="https://github.com/Sharan-m-04/Ignyt-Beer-Station"
+                        target="_blank" rel="noopener">Visit Project <i
+                            class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                </article>
+                <article class="project-card" data-label="Component · ProjectCard" data-stack="HTML · CSS · JS">
+                    <h3 class="project-name">My Portfolio Website</h3>
+                    <p class="project-duration mono">Dec 2023 – Jan 2024</p>
+                    <p class="project-desc">My Portfolio Website, that showcases my skills, achievements and projects.
                     </p>
-                    <button class="visit-project-button" onclick="inventoryProject()">Visit Project<i
-                            class="fa-solid fa-arrow-up-right-from-square open-icon"></i></button>
-                </div>
-            </div>
-            <div class="container right">
-                <div class="content reveal-right">
-                    <h2 class="pro-card-head">Ignyt - The Beer Lounge</h2>
-                    <p class="pro-duration">Jan 2024 - Jan 2024</p>
-                    <p class="pro-card-desc">Internship Project at Varcons Technologies Pvt. Ltd.: Collaborated on developing a dynamic web platform for the client 'Ignyt - The Beer Lounge,'. Leveraged Django to enhance user experience and streamline pub operations.</p>
-                    <button class="visit-project-button" onclick="ignytBeerStationProject()">Visit Project<i
-                            class="fa-solid fa-arrow-up-right-from-square open-icon"></i></button>
-                </div>
-            </div>
-            <div class="container left">
-                <div class="content reveal-left">
-                    <h2 class="pro-card-head">My Portfolio Website</h2>
-                    <p class="pro-duration">Dec 2023 - Jan 2024</p>
-                    <p class="pro-card-desc">My Portfolio Website, that showcases my skills, achievements and projects.
-                    </p>
-                    <button class="visit-project-button" onclick="portfolioProject()">Visit Project<i
-                            class="fa-solid fa-arrow-up-right-from-square open-icon"></i></button>
-                </div>
-            </div>
-            <div class="container right">
-                <div class="content reveal-right">
-                    <h2 class="pro-card-head">BMI Calculator</h2>
-                    <p class="pro-duration">Oct 2023 - Nov 2023</p>
-                    <p class="pro-card-desc">BMI Calculator is a simple and user-friendly BMI (Body Mass Index)
+                    <a class="link-action mono" href="https://github.com/Sharan-m-04/Sharan-m-04.github.io"
+                        target="_blank" rel="noopener">Visit Project <i
+                            class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                </article>
+                <article class="project-card" data-label="Component · ProjectCard" data-stack="Android">
+                    <h3 class="project-name">BMI Calculator</h3>
+                    <p class="project-duration mono">Oct 2023 – Nov 2023</p>
+                    <p class="project-desc">BMI Calculator is a simple and user-friendly BMI (Body Mass Index)
                         calculator app developed for personal health tracking. The app allows users to input their
                         weight and height, and it calculates their BMI, providing valuable insights into their overall
                         health.</p>
-                    <button class="visit-project-button" onclick="BMIcalcProject()">Visit Project<i
-                            class="fa-solid fa-arrow-up-right-from-square open-icon"></i></button>
-                </div>
-            </div>
-            <div class="container left">
-                <div class="content reveal-left">
-                    <h2 class="pro-card-head">CAT Exam Evaluation System</h2>
-                    <p class="pro-duration">Jul 2023 - Sep 2023</p>
-                    <p class="pro-card-desc">A mini project on "CAT Exam Evaluation System". This project encompasses
+                    <a class="link-action mono" href="https://github.com/Sharan-m-04/BMI-Calculator" target="_blank"
+                        rel="noopener">Visit Project <i class="fa-solid fa-arrow-up-right-from-square"
+                            aria-hidden="true"></i></a>
+                </article>
+                <article class="project-card" data-label="Component · ProjectCard" data-stack="Python · Excel">
+                    <h3 class="project-name">CAT Exam Evaluation System</h3>
+                    <p class="project-duration mono">Jul 2023 – Sep 2023</p>
+                    <p class="project-desc">A mini project on "CAT Exam Evaluation System". This project encompasses
                         the creation of an Excel dataset to capture student information and incorporates MCQ-format
                         question and answer data to calculate the percentile.</p>
-                    <button class="visit-project-button" onclick="CATexamEvaluationSystemProject()">Visit Project<i
-                            class="fa-solid fa-arrow-up-right-from-square open-icon"></i></button>
-                </div>
-            </div>
-            <div class="container right">
-                <div class="content reveal-right">
-                    <h2 class="pro-card-head">PDF Merger</h2>
-                    <p class="pro-duration">May 2023 - Jul 2023</p>
-                    <p class="pro-card-desc">PDF Merger web app is developed using flask, this web app can merge the PDF
+                    <a class="link-action mono" href="https://github.com/Sharan-m-04/CAT-Exam-Evaluation-System"
+                        target="_blank" rel="noopener">Visit Project <i
+                            class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                </article>
+                <article class="project-card" data-label="Component · ProjectCard" data-stack="Flask · BytesIO">
+                    <h3 class="project-name">PDF Merger</h3>
+                    <p class="project-duration mono">May 2023 – Jul 2023</p>
+                    <p class="project-desc">PDF Merger web app is developed using flask, this web app can merge the PDF
                         files into single PDF. There is no uploading process in this web app as BytesIO is used.</p>
-                    <button class="visit-project-button" onclick="PDFmergerProject()">Visit Project<i
-                            class="fa-solid fa-arrow-up-right-from-square open-icon"></i></button>
-                </div>
-            </div>
-            <div class="container left">
-                <div class="content reveal-left">
-                    <h2 class="pro-card-head">Digital Steno</h2>
-                    <p class="pro-duration">Jun 2020 - Jan 2023</p>
-                    <p class="pro-card-desc">Digital Steno Is The App That Saves Your Time, Storage and work. Because
+                    <a class="link-action mono" href="https://github.com/Sharan-m-04/PDF-Merger" target="_blank"
+                        rel="noopener">Visit Project <i class="fa-solid fa-arrow-up-right-from-square"
+                            aria-hidden="true"></i></a>
+                </article>
+                <article class="project-card" data-label="Component · ProjectCard" data-stack="Android · OCR">
+                    <h3 class="project-name">Digital Steno</h3>
+                    <p class="project-duration mono">Jun 2020 – Jan 2023</p>
+                    <p class="project-desc">Digital Steno Is The App That Saves Your Time, Storage and work. Because
                         This App Has Many Features Like Translating Your Notes, Searching Some Keyword, OCR etc., All
                         These Features In Just One App. You Can Also Export Your Notes In The Form Of PDF Or TXT.</p>
-                    <button class="visit-project-button" onclick="DigitalStenoProject()">Visit Project<i
-                            class="fa-solid fa-arrow-up-right-from-square open-icon"></i></button>
-                </div>
+                    <a class="link-action mono" href="https://github.com/Sharan-m-04/Digital_Steno" target="_blank"
+                        rel="noopener">Visit Project <i class="fa-solid fa-arrow-up-right-from-square"
+                            aria-hidden="true"></i></a>
+                </article>
+                <article class="project-card" data-label="Component · ProjectCard" data-stack="Figma">
+                    <h3 class="project-name">Skeezy</h3>
+                    <p class="project-duration mono">Dec 2022 – Dec 2022</p>
+                    <p class="project-desc">A design/prototype we made in UI/UX Design Hackathon a part of
+                        Pragyatha-22, a state level entrepreneurial fest organized by ME-RIISE. We had to design a
+                        sport shoe web page within 24 hours using Figma.</p>
+                    <a class="link-action mono" href="https://www.figma.com/file/GalviVgIyYuSJoSV6ezBDs/Hackathon-22"
+                        target="_blank" rel="noopener">Visit Project <i
+                            class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                </article>
             </div>
-            <div class="container right">
-                <div class="content reveal-right">
-                    <h2 class="pro-card-head">Skeezy</h2>
-                    <p class="pro-duration">Dec 2022 - Dec 2022</p>
-                    <p class="pro-card-desc">A design/prototype we made in UI/UX Design Hackathon a part of
-                        Pragyatha-22, a state level entrepreneurial fest organized by ME-RIISE. We had to design a sport
-                        shoe web page within 24 hours using Figma.</p>
-                    <button class="visit-project-button" onclick="SkeezyProject()">Visit Project<i
-                            class="fa-solid fa-arrow-up-right-from-square open-icon"></i></button>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="skills-section" id="skills">
-        <p class="skill-head">Skills</p>
-        <div class="skill-chips-div fade" id="skill-chips-div">
-            <button class="skill-chip active" onclick="filterSelection('all')">All</button>
-            <button class="skill-chip" onclick="filterSelection('industry_knowledge')">Industry Knowledge</button>
-            <button class="skill-chip" onclick="filterSelection('tools_and_technologies')">Tools & Technologies</button>
-            <button class="skill-chip" onclick="filterSelection('interpersonal_skills')">Interpersonal Skills</button>
-        </div>
-        <div class="skill-content fade">
-            <div class="skill-card industry_knowledge">
-                <i class="fa-brands fa-node skill-icon"></i>Node.js
+        <!-- ============ SKILLS ============ -->
+        <section class="section frame" id="skills" data-label="Frame · Skills">
+            <header class="section-head">
+                <span class="section-index mono">06</span>
+                <h2 class="section-title">Skills</h2>
+            </header>
+            <div class="skill-filters mono" role="group" aria-label="Filter skills by category">
+                <button type="button" class="skill-filter active" data-filter="all">All</button>
+                <button type="button" class="skill-filter" data-filter="industry_knowledge">Industry Knowledge</button>
+                <button type="button" class="skill-filter" data-filter="tools_and_technologies">Tools &amp;
+                    Technologies</button>
+                <button type="button" class="skill-filter" data-filter="interpersonal_skills">Interpersonal
+                    Skills</button>
             </div>
-            <div class="skill-card industry_knowledge">
-                <i class="fa-brands fa-angular skill-icon"></i>AngularJs
-            </div>
-            <div class="skill-card industry_knowledge">
-                <i class="fa-brands fa-vuejs skill-icon"></i>Vue.js
-            </div>
-            <div class="skill-card industry_knowledge">
-                <i class="fa-solid fa-globe skill-icon" class=""></i>Web
-                Development
-            </div>
-            <div class="skill-card industry_knowledge">
-                <i class="fa-solid fa-palette skill-icon"></i>UI/UX Designing
-            </div>
-            <div class="skill-card tools_and_technologies">
-                <i class="fa-brands fa-figma skill-icon"></i>Figma
-            </div>
-            <div class="skill-card tools_and_technologies">
-                <i class="fa-brands fa-python skill-icon"></i>Python
-            </div>
-            <div class="skill-card tools_and_technologies">
-                <img src="Images/flask-icon.png" draggable="false" class="skill-img-icon">Flask
-            </div>
-            <div class="skill-card tools_and_technologies">
-                <img src="Images/django.png" draggable="false" class="skill-img-icon">Django
-            </div>
-            <div class="skill-card tools_and_technologies">
-                <i class="fa-solid fa-database skill-icon"></i>MySQL
-            </div>
-            <div class="skill-card industry_knowledge">
-                <i class="fa-solid fa-puzzle-piece skill-icon"></i>Data
-                Structures And Algorithms
-            </div>
-            <div class="skill-card tools_and_technologies">
-                <i class="fa-brands fa-java skill-icon"></i>Java
-            </div>
-            <div class="skill-card tools_and_technologies">
-                <i class="fa-solid fa-c skill-icon"></i>C
-            </div>
-            <div class="skill-card tools_and_technologies">
-                <img src="Images/cpp-logo.png" draggable="false" class="skill-img-icon">C++
-            </div>
-            <div class="skill-card industry_knowledge">
-                <i class="fa-solid fa-link skill-icon"></i>
-                API Integration
-            </div>
-            <div class="skill-card industry_knowledge">
-                <i class="fa-brands fa-android skill-icon"></i></i>Android
-                Development
-            </div>
-            <div class="skill-card tools_and_technologies">
-                <i class="fa-brands fa-microsoft skill-icon"></i>Microsoft
-                Office
-            </div>
-            <div class="skill-card industry_knowledge">
-                <i class="fa-solid fa-code skill-icon"></i>Programming
-            </div>
-            <div class="skill-card interpersonal_skills">
-                <i class="fa-solid fa-handshake-simple skill-icon"></i>Teamwork
-            </div>
-        </div>
-    </section>
-
-    <section class="awards-section" id="awards">
-        <p class="awards-head">Awards</p>
-        <div class="award-content fade">
-            <div class="award-card">
-                <i class="fa-solid fa-book-bookmark award-badge"></i>
-                <p class="award-title">Published author of 'UI/UX Lab Manual'</p>
-                <p class="award-issuer">Self-Published · Feb 2025</p>
-                <p class="award-desc">This lab manual provides a structured approach to learning UI/UX design using Figma, covering prototyping. It includes practical guidelines to help students and beginners understand the design process step by step.</p>
-                <button class="show-certificate-button" onclick="LabManualPublication()">Show Publication<i
-                        class="fa-solid fa-arrow-up-right-from-square open-icon"></i></button>
-            </div>
-            <div class="award-card">
-                <i class="fa-solid fa-award award-badge"></i>
-                <p class="award-title">TeckKriti '24</p>
-                <p class="award-issuer">Issued by Rajeev Institute of Technology, Dept of CSE, CSE(AI&ML), ISE · Jan 2024</p>
-                <p class="award-desc">Received an award for exceptional contributions as a coordinator for TechKriti '24, a state-level tech fest hosting Design-A-Thon, CodeSprint, Mind Maze, Ideathon, Elevate Expo, and Battle Bash.</p>
-                <button class="show-certificate-button" onclick="TechKritiCertificate()">Show Certificate<i
-                        class="fa-solid fa-arrow-up-right-from-square open-icon"></i></button>
-            </div>
-            <div class="award-card">
-                <i class="fa-solid fa-medal award-badge"></i>
-                <p class="award-title">Coding Hackathon | Tech Connect - 2K23</p>
-                <p class="award-issuer">Issued by Rajeev Institute of Technology, Department of ECE · Dec 2023</p>
-                <p class="award-desc">Secured 2nd Place in Coding Hackathon at 'Tech Connect - 2K23' Organized by
-                    Department of Electronics and Communication Engineering.</p>
-                <button class="show-certificate-button" onclick="TechConnectCertificate()">Show Certificate<i
-                        class="fa-solid fa-arrow-up-right-from-square open-icon"></i></button>
-            </div>
-            <div class="award-card">
-                <i class="fa-solid fa-ranking-star award-badge"></i>
-                <p class="award-title">Coding Ninjas Codekaze-Sep'23 Naukri Engineers Week</p>
-                <p class="award-issuer">Issued by Coding Ninjas · Oct 2023</p>
-                <p class="award-desc">Achieved All India Rank 7082 in Coding Ninjas' CodeKaze Sep'23 Naukri Engineers
-                    Week's Contest, showcasing top-tier coding skills and problem-solving abilities among national
-                    talents.</p>
-                <button class="show-certificate-button" onclick="CodeKazeCertificate()">Show Certificate<i
-                        class="fa-solid fa-arrow-up-right-from-square open-icon"></i></button>
-            </div>
-            <div class="award-card">
-                <i class="fa-solid fa-trophy award-badge"></i>
-                <p class="award-title">UI/UX Design Hackathon</p>
-                <p class="award-issuer">Issued by ME-RIISE · Dec 2022</p>
-                <p class="award-desc">We secured 1st place in UI/UX Design Hackathon a part of Pragyatha-22, a state
-                    level entrepreneurial fest organized by ME-RIISE. We had to design a sport shoe web page within 24
-                    hours using Figma.</p>
-                <button class="show-certificate-button" onclick="UI_UX_HackathonCertificate()">Show Certificate<i
-                        class="fa-solid fa-arrow-up-right-from-square open-icon"></i></button>
-            </div>
-        </div>
-    </section>
-
-    <section class="contact-section" id="contact-me">
-        <p class="contact-head">Contact Me</p>
-        <form
-            action="https://script.google.com/macros/s/AKfycbw1o5BtzZre8C510rFQZLDKzzNUZzRZFkat9RDArcf4bGExolYliuT3CJ0Hc2fA9Wxz/exec"
-            method="post" class="form-container fade">
-            <input class="contact-input" type="text" name="name" id="name" placeholder="Enter Your name" required>
-            <input class="contact-input" type="email" name="email" id="email" placeholder="Enter the E-Mail Address"
-                required>
-            <textarea class="contact-input" name="message" id="message" cols="30" rows="5"
-                placeholder="Enter the message" required></textarea>
-            <button class="contact-submit-btn" type="submit" id="submit">Send</button>
-        </form>
-    </section>
-
-    <section class="footer">
-        <p class="footer-head">
-            Sharan M | Portfolio Website
-        </p>
-        <div class="footer-nav">
-            <ul class="footer-navul">
-                <li class="footer-navItem"><a href="#" class="footer-navLink">Home</a></li>
-                <li class="footer-navItem"><a href="#about-me" class="footer-navLink">About Me</a></li>
-                <li class="footer-navItem"><a href="#experience" class="footer-navLink">Experience</a></li>
-                <li class="footer-navItem"><a href="#education" class="footer-navLink">Education</a></li>
-                <li class="footer-navItem"><a href="#certifications" class="footer-navLink">Certifications</a></li>
-                <li class="footer-navItem"><a href="#projects" class="footer-navLink">Projects</a></li>
-                <li class="footer-navItem"><a href="#skills" class="footer-navLink">Skills</a></li>
-                <li class="footer-navItem"><a href="#awards" class="footer-navLink">Awards</a></li>
-                <li class="footer-navItem"><a href="#contact-me" class="footer-navLink">Contact Me</a></li>
+            <ul class="skill-grid" id="skill-grid">
+                <li class="skill-chip industry_knowledge"><i class="devicon-nodejs-plain" aria-hidden="true"></i>
+                    <span class="skill-name">Node.js</span></li>
+                <li class="skill-chip industry_knowledge"><i class="devicon-angularjs-plain" aria-hidden="true"></i>
+                    <span class="skill-name">AngularJs</span></li>
+                <li class="skill-chip industry_knowledge"><i class="devicon-vuejs-plain" aria-hidden="true"></i>
+                    <span class="skill-name">Vue.js</span></li>
+                <li class="skill-chip industry_knowledge"><i class="bi bi-globe2" aria-hidden="true"></i>
+                    <span class="skill-name">Web Development</span></li>
+                <li class="skill-chip industry_knowledge"><i class="bi bi-vector-pen" aria-hidden="true"></i>
+                    <span class="skill-name">UI/UX Designing</span></li>
+                <li class="skill-chip tools_and_technologies"><i class="devicon-figma-plain" aria-hidden="true"></i>
+                    <span class="skill-name">Figma</span></li>
+                <li class="skill-chip tools_and_technologies"><i class="devicon-python-plain" aria-hidden="true"></i>
+                    <span class="skill-name">Python</span></li>
+                <li class="skill-chip tools_and_technologies"><i class="devicon-flask-original" aria-hidden="true"></i>
+                    <span class="skill-name">Flask</span></li>
+                <li class="skill-chip tools_and_technologies"><i class="devicon-django-plain" aria-hidden="true"></i>
+                    <span class="skill-name">Django</span></li>
+                <li class="skill-chip tools_and_technologies"><i class="devicon-mysql-plain" aria-hidden="true"></i>
+                    <span class="skill-name">MySQL</span></li>
+                <li class="skill-chip industry_knowledge"><i class="bi bi-diagram-3" aria-hidden="true"></i>
+                    <span class="skill-name">Data Structures And Algorithms</span></li>
+                <li class="skill-chip tools_and_technologies"><i class="devicon-java-plain" aria-hidden="true"></i>
+                    <span class="skill-name">Java</span></li>
+                <li class="skill-chip tools_and_technologies"><i class="devicon-c-plain" aria-hidden="true"></i>
+                    <span class="skill-name">C</span></li>
+                <li class="skill-chip tools_and_technologies"><i class="devicon-cplusplus-plain" aria-hidden="true"></i>
+                    <span class="skill-name">C++</span></li>
+                <li class="skill-chip industry_knowledge"><i class="bi bi-plug" aria-hidden="true"></i>
+                    <span class="skill-name">API Integration</span></li>
+                <li class="skill-chip industry_knowledge"><i class="devicon-android-plain" aria-hidden="true"></i>
+                    <span class="skill-name">Android Development</span></li>
+                <li class="skill-chip tools_and_technologies"><i class="bi bi-microsoft" aria-hidden="true"></i>
+                    <span class="skill-name">Microsoft Office</span></li>
+                <li class="skill-chip industry_knowledge"><i class="bi bi-code-slash" aria-hidden="true"></i>
+                    <span class="skill-name">Programming</span></li>
+                <li class="skill-chip interpersonal_skills"><i class="bi bi-people" aria-hidden="true"></i>
+                    <span class="skill-name">Teamwork</span></li>
             </ul>
-        </div>
-        <div class="social-links">
-            <a href="mailto:msharan.hnp@gmail.com" class="social-icons" target="_blank"><i
-                    class="fa-solid fa-envelope"></i></a>
-            <a href="https://github.com/Sharan-m-04" class="social-icons" target="_blank"><i
-                    class="fa-brands fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/sharanm04" class="social-icons" target="_blank"><i
-                    class="fa-brands fa-linkedin"></i></a>
-            <a href="https://www.instagram.com/its_sharan_m/" class="social-icons" target="_blank"><i
-                    class="fa-brands fa-instagram"></i></a>
-            <a href="https://twitter.com/Sharan_M_" class="social-icons" target="_blank"><i
-                    class="fa-brands fa-x-twitter"></i></a>
-        </div>
-    </section>
+        </section>
 
-    <script src="script.js"></script>
-    <script src="https://kit.fontawesome.com/89af5da05d.js" crossorigin="anonymous"></script>
+        <!-- ============ AWARDS ============ -->
+        <section class="section frame" id="awards" data-label="Frame · Awards">
+            <header class="section-head">
+                <span class="section-index mono">07</span>
+                <h2 class="section-title">Awards</h2>
+            </header>
+            <div class="award-grid">
+                <article class="award-card" data-label="Component · AwardCard">
+                    <i class="fa-solid fa-book-bookmark award-icon" aria-hidden="true" data-mouse-depth="3"></i>
+                    <h3 class="award-title">Published author of 'UI/UX Lab Manual'</h3>
+                    <p class="award-issuer mono">Self-Published · Feb 2025</p>
+                    <p class="award-desc">This lab manual provides a structured approach to learning UI/UX design using
+                        Figma, covering prototyping. It includes practical guidelines to help students and beginners
+                        understand the design process step by step.</p>
+                    <a class="link-action mono" href="https://www.amazon.in/dp/B0DWH14F66" target="_blank"
+                        rel="noopener">Show Publication <i class="fa-solid fa-arrow-up-right-from-square"
+                            aria-hidden="true"></i></a>
+                </article>
+                <article class="award-card" data-label="Component · AwardCard">
+                    <i class="fa-solid fa-award award-icon" aria-hidden="true" data-mouse-depth="3"></i>
+                    <h3 class="award-title">TeckKriti '24</h3>
+                    <p class="award-issuer mono">Issued by Rajeev Institute of Technology, Dept of CSE, CSE(AI&amp;ML),
+                        ISE · Jan 2024</p>
+                    <p class="award-desc">Received an award for exceptional contributions as a coordinator for TechKriti
+                        '24, a state-level tech fest hosting Design-A-Thon, CodeSprint, Mind Maze, Ideathon, Elevate
+                        Expo, and Battle Bash.</p>
+                    <button type="button" class="link-action mono" data-lightbox="Images/techkritiCertificate.png"
+                        data-lightbox-alt="TechKriti '24 coordinator award certificate">Show Certificate <i
+                            class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></button>
+                </article>
+                <article class="award-card" data-label="Component · AwardCard">
+                    <i class="fa-solid fa-medal award-icon" aria-hidden="true" data-mouse-depth="3"></i>
+                    <h3 class="award-title">Coding Hackathon | Tech Connect - 2K23</h3>
+                    <p class="award-issuer mono">Issued by Rajeev Institute of Technology, Department of ECE · Dec 2023
+                    </p>
+                    <p class="award-desc">Secured 2nd Place in Coding Hackathon at 'Tech Connect - 2K23' Organized by
+                        Department of Electronics and Communication Engineering.</p>
+                    <button type="button" class="link-action mono" data-lightbox="Images/TechConnectCertificate.jpg"
+                        data-lightbox-alt="Tech Connect 2K23 coding hackathon 2nd place certificate">Show Certificate
+                        <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></button>
+                </article>
+                <article class="award-card" data-label="Component · AwardCard">
+                    <i class="fa-solid fa-ranking-star award-icon" aria-hidden="true" data-mouse-depth="3"></i>
+                    <h3 class="award-title">Coding Ninjas Codekaze-Sep'23 Naukri Engineers Week</h3>
+                    <p class="award-issuer mono">Issued by Coding Ninjas · Oct 2023</p>
+                    <p class="award-desc">Achieved All India Rank 7082 in Coding Ninjas' CodeKaze Sep'23 Naukri
+                        Engineers Week's Contest, showcasing top-tier coding skills and problem-solving abilities among
+                        national talents.</p>
+                    <button type="button" class="link-action mono" data-lightbox="Images/code-kaze-certificate.jpg"
+                        data-lightbox-alt="Coding Ninjas CodeKaze September 2023 certificate">Show Certificate <i
+                            class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></button>
+                </article>
+                <article class="award-card" data-label="Component · AwardCard">
+                    <i class="fa-solid fa-trophy award-icon" aria-hidden="true" data-mouse-depth="3"></i>
+                    <h3 class="award-title">UI/UX Design Hackathon</h3>
+                    <p class="award-issuer mono">Issued by ME-RIISE · Dec 2022</p>
+                    <p class="award-desc">We secured 1st place in UI/UX Design Hackathon a part of Pragyatha-22, a
+                        state level entrepreneurial fest organized by ME-RIISE. We had to design a sport shoe web page
+                        within 24 hours using Figma.</p>
+                    <button type="button" class="link-action mono" data-lightbox="Images/ui-uxHackathonCertificate.jpg"
+                        data-lightbox-alt="UI/UX Design Hackathon first place certificate">Show Certificate <i
+                            class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></button>
+                </article>
+            </div>
+        </section>
+
+        <!-- ============ CONTACT ============ -->
+        <section class="section frame" id="contact-me" data-label="Frame · Contact">
+            <header class="section-head">
+                <span class="section-index mono">08</span>
+                <h2 class="section-title">Contact Me</h2>
+            </header>
+            <div class="terminal mono" id="contact-terminal" aria-hidden="true" data-mouse-depth="5">
+                <div class="terminal-chrome">
+                    <span class="chrome-dot"></span><span class="chrome-dot"></span><span class="chrome-dot"></span>
+                    <span class="terminal-title">bash — portfolio</span>
+                </div>
+                <div class="terminal-body">
+                    <p class="term-line"><span class="term-prompt">$</span> <span
+                            id="term-typed">sharan contact --send</span><span class="term-caret"></span></p>
+                    <p class="term-line term-output" id="term-output"></p>
+                </div>
+            </div>
+            <form class="contact-form" id="contact-form" novalidate data-label="Component · ContactForm">
+                <!-- honeypot: hidden from humans, bots fill it and get dropped -->
+                <input class="hp-field" type="text" name="website" id="website" tabindex="-1" autocomplete="off"
+                    aria-hidden="true">
+                <div class="field">
+                    <label class="field-label mono" for="name">name <span class="accent">*</span></label>
+                    <input class="field-input" type="text" name="name" id="name" placeholder="Enter Your name"
+                        autocomplete="name" required>
+                    <p class="field-error mono" id="name-error" role="alert"></p>
+                </div>
+                <div class="field">
+                    <label class="field-label mono" for="email">email <span class="accent">*</span></label>
+                    <input class="field-input" type="email" name="email" id="email"
+                        placeholder="Enter the E-Mail Address" autocomplete="email" required>
+                    <p class="field-error mono" id="email-error" role="alert"></p>
+                </div>
+                <div class="field">
+                    <label class="field-label mono" for="message">message <span class="accent">*</span></label>
+                    <textarea class="field-input" name="message" id="message" rows="5"
+                        placeholder="Enter the message" required></textarea>
+                    <p class="field-error mono" id="message-error" role="alert"></p>
+                </div>
+                <button class="btn btn-primary contact-submit" type="submit" id="submit">Send</button>
+                <p class="form-status mono" id="form-status" role="status"></p>
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p class="footer-head">Sharan M | Portfolio Website</p>
+        <nav aria-label="Footer navigation">
+            <ul class="footer-links mono">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about-me">About Me</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#awards">Awards</a></li>
+                <li><a href="#contact-me">Contact Me</a></li>
+            </ul>
+        </nav>
+        <div class="footer-social">
+            <a href="mailto:msharan.hnp@gmail.com" aria-label="Email Sharan"><i class="fa-solid fa-envelope"
+                    aria-hidden="true"></i></a>
+            <a href="https://github.com/Sharan-m-04" target="_blank" rel="noopener" aria-label="GitHub profile"><i
+                    class="fa-brands fa-github" aria-hidden="true"></i></a>
+            <a href="https://www.linkedin.com/in/sharanm04" target="_blank" rel="noopener"
+                aria-label="LinkedIn profile"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+            <a href="https://www.instagram.com/its_sharan_m/" target="_blank" rel="noopener"
+                aria-label="Instagram profile"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://twitter.com/Sharan_M_" target="_blank" rel="noopener" aria-label="X (Twitter) profile"><i
+                    class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+        </div>
+        <div class="footer-signature" aria-hidden="true">SHARAN&nbsp;M</div>
+        <p class="footer-note mono">canvas · 100% — designed &amp; built by Sharan M</p>
+    </footer>
+
+    <!-- Certificate lightbox -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Certificate preview" hidden>
+        <button type="button" class="lightbox-close mono" id="lightbox-close" aria-label="Close preview">esc ·
+            close</button>
+        <img src="" alt="" id="lightbox-img" class="lightbox-img">
+    </div>
+
+    <button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <script src="https://kit.fontawesome.com/89af5da05d.js" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.158.0/three.min.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/effects.js" defer></script>
+    <script src="js/hero3d.js" defer></script>
 </body>
 
 </html>
