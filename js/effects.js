@@ -249,20 +249,20 @@
     });
 
     ScrollTrigger.batch('.reveal-item', {
-        // fire once the element is meaningfully in view (not just peeking
-        // in at the very bottom) so the selection flash is on-screen when
-        // the reader actually reaches it
-        start: 'top 80%',
+        // fire only once the element is well into view (top ~2/3 up the
+        // screen) — earlier triggers meant the flash was already gone by
+        // the time the reader scrolled the section into place
+        start: 'top 68%',
         once: true,
         onEnter: function (batch) {
             batch.forEach(function (el, i) {
                 setTimeout(function () {
                     el.classList.add('revealed', 'selecting');
-                    // hold the dashed selection long enough to be seen,
-                    // then let it fade out (CSS transition on outline-color)
+                    // hold the dashed selection well past the arrival, then
+                    // fade it out (CSS transition on outline-color)
                     setTimeout(function () {
                         el.classList.remove('selecting');
-                    }, 1500);
+                    }, 2400);
                 }, i * 90);
             });
         }

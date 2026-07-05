@@ -764,7 +764,7 @@ main {
     border: 1px solid var(--border-soft);
     border-radius: 8px;
     padding: 26px 28px;
-    transition: border-color 0.2s ease;
+    transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
 .xp-card::after {
@@ -778,6 +778,7 @@ main {
     background: var(--bg-canvas);
     border: 2px solid var(--accent);
     border-radius: 50%;
+    transition: box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .xp-commit {
@@ -807,6 +808,32 @@ main {
 
 .xp-card:hover {
     border-color: var(--accent);
+    transform: translateY(-3px);
+}
+
+/* lit commit node when its card is active */
+.xp-card:hover::after {
+    background: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-soft), 0 0 12px var(--accent);
+}
+
+/* tech tags per role — scannable at a glance */
+.xp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+    list-style: none;
+    padding: 0;
+}
+
+.xp-tags li {
+    padding: 3px 10px;
+    font-size: 11px;
+    color: var(--text-2);
+    background: var(--bg-frame);
+    border: 1px solid var(--border-soft);
+    border-radius: 6px;
 }
 
 .xp-top {
@@ -1269,6 +1296,9 @@ main {
     padding: 20px 20px 48px;
     text-align: center;
     border-top: 1px solid var(--border-soft);
+    /* contain the oversized decorative signature — never let it push
+       the page into horizontal scroll */
+    overflow-x: hidden;
 }
 
 @media (min-width: 1121px) {
@@ -1623,10 +1653,16 @@ main {
     margin-top: 34px;
     font-family: var(--font-display);
     font-weight: 700;
-    font-size: clamp(72px, 15vw, 210px);
+    /* min lowered so "SHARAN M" always fits the viewport width on
+       phones (72px was ~381px wide and overflowed a 375px screen);
+       12vw keeps a comfortable margin either side */
+    font-size: clamp(38px, 12vw, 210px);
     line-height: 0.85;
     letter-spacing: 0.04em;
     text-align: center;
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
     color: transparent;
     -webkit-text-stroke: 1.5px var(--text-3);
     user-select: none;
@@ -1647,6 +1683,14 @@ main {
 
 @media (max-width: 1120px) {
 
+    /* stronger frosted-glass on mobile: drop the bar opacity so the
+       blurred content behind actually shows through */
+    .site-header {
+        background: rgba(20, 20, 24, 0.55);
+        -webkit-backdrop-filter: blur(18px) saturate(140%);
+        backdrop-filter: blur(18px) saturate(140%);
+    }
+
     .nav-links {
         position: fixed;
         top: var(--header-h);
@@ -1656,9 +1700,9 @@ main {
         align-items: stretch;
         gap: 2px;
         padding: 14px 20px 20px;
-        background: var(--header-bg);
-        -webkit-backdrop-filter: blur(16px);
-        backdrop-filter: blur(16px);
+        background: rgba(20, 20, 24, 0.7);
+        -webkit-backdrop-filter: blur(20px) saturate(140%);
+        backdrop-filter: blur(20px) saturate(140%);
         border-bottom: 1px solid var(--border);
         transform: translateY(-8px);
         opacity: 0;
@@ -1748,6 +1792,18 @@ main {
 
     .project-card::after {
         display: none;
+    }
+
+    /* single column: minmax(320px) forced cards wider than the ~309px
+       mobile container, causing an internal horizontal overflow */
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-name,
+    .project-desc,
+    .xp-desc {
+        overflow-wrap: break-word;
     }
 
     /* skill filters: one row, swipe to scroll, bleed to frame edge */
