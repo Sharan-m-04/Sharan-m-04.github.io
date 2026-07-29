@@ -17,6 +17,35 @@ var CONTACT_ENDPOINT = 'https://portfolio-contact.msharan-hnp.workers.dev/';
 
     /* ---------- Hash-free smooth anchor scrolling ---------- */
 
+    // On desktop, GSAP pins #home and #projects: the section itself is
+    // pulled out of normal flow (fixed / transform-offset) while its
+    // pin-spacer holds the slot. Its own bounding rect therefore points at
+    // wherever the pin has parked it — for #home that is the END of the pin,
+    // which is why "Home" only scrolled back as far as About. hero3d.js does
+    // the same to #about-me while it is projected inside the laptop screen.
+    // Always measure the element's real slot in the document flow instead.
+    function flowSlot(el) {
+        var pinSpacer = el.closest('.pin-spacer');
+        if (pinSpacer) return pinSpacer;
+        var prev = el.previousElementSibling;
+        if (el.classList.contains('in-screen') && prev &&
+            prev.classList.contains('flow-slot')) {
+            return prev;
+        }
+        return el;
+    }
+
+    function scrollToSection(el) {
+        var headerH = parseFloat(getComputedStyle(document.documentElement)
+            .getPropertyValue('--header-h')) || 0;
+        var top = flowSlot(el).getBoundingClientRect().top + window.scrollY
+            - (headerH + 16);
+        window.scrollTo({
+            top: Math.max(0, top),
+            behavior: reducedMotion ? 'auto' : 'smooth'
+        });
+    }
+
     // internal links scroll smoothly but never append #section to the URL
     document.addEventListener('click', function (e) {
         var link = e.target.closest('a[href^="#"]');
@@ -24,7 +53,7 @@ var CONTACT_ENDPOINT = 'https://portfolio-contact.msharan-hnp.workers.dev/';
         var target = document.querySelector(link.getAttribute('href'));
         if (!target) return;
         e.preventDefault();
-        target.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth' });
+        scrollToSection(target);
     });
 
     // if the page was opened with a #hash (e.g. a shared link), honor the
@@ -272,6 +301,14 @@ var CONTACT_ENDPOINT = 'https://portfolio-contact.msharan-hnp.workers.dev/';
         var TEXT_SELECTOR =
             'p, h1, h2, h3, li, label, blockquote, pre, input, textarea';
 
+        // everything the page would hand a native cursor: pointer. Read from a
+        // selector rather than getComputedStyle, because cursor-active sets
+        // `cursor: none !important` on every element — the computed value is
+        // always 'none' once the custom cursor is running.
+        var POINTER_SELECTOR =
+            'a[href], button, summary, select, [role="button"], ' +
+            'input[type="submit"], input[type="button"]';
+
         document.addEventListener('mouseover', function (e) {
             var text = labelFor(e.target);
             if (text) {
@@ -281,10 +318,12 @@ var CONTACT_ENDPOINT = 'https://portfolio-contact.msharan-hnp.workers.dev/';
                 cursorLabel.classList.remove('visible');
             }
 
-            // terminal block caret over text content; arrow elsewhere
-            // (interactive elements keep the arrow + label)
-            var overText = !text && !!e.target.closest(TEXT_SELECTOR);
-            document.body.classList.toggle('cursor-text', overText);
+            // hand over anything clickable, I-beam over text, arrow elsewhere.
+            // Clickable wins: a link inside a paragraph is a link first.
+            var overPointer = !!e.target.closest(POINTER_SELECTOR);
+            document.body.classList.toggle('cursor-pointer', overPointer);
+            document.body.classList.toggle('cursor-text',
+                !overPointer && !!e.target.closest(TEXT_SELECTOR));
         });
 
         document.addEventListener('mouseleave', function () {

@@ -203,9 +203,53 @@ button {
     stroke-width: 1.5;
 }
 
+/* every mode carries the same lift off the canvas; `display` is left to the
+   mode rules below so they never have to out-specify a descendant selector */
 .cursor svg {
-    display: block;
     filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.35));
+}
+
+.cursor-arrow-svg {
+    display: block;
+}
+
+.cursor-hand-svg,
+.cursor-beam-svg {
+    display: none;
+}
+
+/* fingertip pulled onto the pointer position */
+.cursor-hand-svg {
+    margin: -2px 0 0 -8px;
+}
+
+/* Fill and stroke the same colour, so the union of the six parts reads as a
+   single silhouette instead of six outlined rectangles. 1.8 is deliberate:
+   it fattens each part by 0.9 a side — enough that neighbouring parts merge
+   with no holes, but less than the 0.8 finger gaps are wide, so those stay
+   open in the white pass and read as knuckle lines. */
+.cursor-hand-case {
+    fill: var(--bg-canvas);
+    stroke: var(--bg-canvas);
+    stroke-width: 1.8;
+    stroke-linejoin: round;
+}
+
+.cursor-hand-fill {
+    fill: #fff;
+}
+
+/* the I-beam is centred on the pointer rather than hung off it */
+.cursor-beam-svg {
+    margin: -12px 0 0 -6px;
+}
+
+.cursor-beam-line {
+    fill: #fff;
+    stroke: var(--bg-canvas);
+    stroke-width: 1.6;
+    stroke-linejoin: round;
+    paint-order: stroke;
 }
 
 .cursor-label {
@@ -234,20 +278,17 @@ body.cursor-active * {
     cursor: none !important;
 }
 
-/* terminal block caret shown instead of the arrow over text content */
-.cursor-caret {
-    display: none;
-    width: 9px;
-    height: 18px;
-    background: var(--accent);
-    animation: caret-blink 1.1s steps(1) infinite;
-}
-
+/* mode switch: hand over anything clickable, I-beam over text, arrow else */
+body.cursor-pointer .cursor-arrow-svg,
 body.cursor-text .cursor-arrow-svg {
     display: none;
 }
 
-body.cursor-text .cursor-caret {
+body.cursor-pointer .cursor-hand-svg {
+    display: block;
+}
+
+body.cursor-text .cursor-beam-svg {
     display: block;
 }
 
@@ -599,6 +640,14 @@ main {
     inset: 0;
     z-index: -1;
     pointer-events: none;
+}
+
+/* companion layer holding the geometry nearer the camera than the laptop
+   screen (arms, hands, keyboard deck). It sits above #about-me.in-screen (40)
+   so the projected page reads as being INSIDE the screen with his arms in
+   front of it, and below the rulers (60) / header (80) / back-to-top (90). */
+.webgl-canvas-fg {
+    z-index: 45;
 }
 
 .hero-inner {
@@ -1012,30 +1061,41 @@ main {
     }
 }
 
-/* floating tech-stack tag revealed on hover */
+/* Tech-stack tag. It used to be a hover-only floating chip, which left the
+   card's lower half permanently blank — dead space the taller horizontal
+   layout turned into a visibly empty rectangle. Promoted to standing content:
+   the stack is the first thing worth knowing about a project anyway. It takes
+   the slack (margin-top: auto) so the stack and the link sit together on the
+   card's baseline whatever the description's length. */
 .project-card::after {
     content: attr(data-stack);
-    position: absolute;
-    right: 12px;
-    bottom: 12px;
-    z-index: 3;
-    padding: 3px 9px;
+    order: 1;
+    align-self: flex-start;
+    margin-top: auto;
+    margin-bottom: 16px;
+    padding: 4px 10px;
     font-family: var(--font-mono);
     font-size: 10.5px;
-    color: #fff;
-    background: var(--accent);
+    letter-spacing: 0.02em;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-faint);
     border-radius: 4px;
-    opacity: 0;
-    transform: translateY(6px);
-    transition: opacity 0.25s ease 0.15s, transform 0.25s ease 0.15s;
+    transition: background-color 0.2s ease, color 0.2s ease;
     pointer-events: none;
 }
 
 @media (hover: hover) and (pointer: fine) {
     .project-card:hover::after {
-        opacity: 1;
-        transform: translateY(0);
+        color: #fff;
+        background: var(--accent);
     }
+}
+
+/* the link keeps the baseline; the stack chip above it owns the slack */
+.project-card .link-action {
+    order: 2;
+    margin-top: 0;
 }
 
 .project-name {
@@ -1235,7 +1295,12 @@ main {
     /* terminal-style entry: mono font + accent caret */
     font-family: var(--font-mono);
     font-size: 14px;
+    /* thick terminal block caret to match .term-caret, instead of the thin
+       default bar. caret-shape is the only way to widen a text caret — it is
+       not fakeable in CSS — so on engines that lack it this falls back to the
+       accent-coloured bar it has always drawn. */
     caret-color: var(--accent);
+    caret-shape: block;
     color: var(--text-1);
     background: var(--bg-elev);
     border: 1px solid var(--border);
@@ -1592,18 +1657,44 @@ main {
        [data-label] tag overflow above the frame edge */
     overflow-x: clip;
     overflow-y: visible;
+
+    /* tighter than the standard frame: two rows of cards need the headroom
+       to sit inside the pinned viewport */
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    /* fill the pinned viewport — 96px is the pin's top offset, 32px keeps the
+       frame's bottom edge just above the fold */
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 96px - 32px);
 }
 
+.is-horizontal-section .section-head {
+    margin-bottom: 24px;
+}
+
+/* Two rows deep. The pin parks this section alone in the viewport for the
+   whole horizontal run, and a single row of cards left a screenful of empty
+   canvas under the frame. Stacking the track fills that space with actual
+   cards — and halves the scroll distance — rather than padding the frame out
+   with air. Column flow reads top-to-bottom, then right. */
 .project-grid.is-horizontal {
-    display: flex;
-    flex-wrap: nowrap;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 360px;
     gap: 20px;
     will-change: transform;
-}
 
-.project-grid.is-horizontal .project-card {
-    flex: 0 0 360px;
-    width: 360px;
+    /* Rows stay at their content height — stretching them to fill the frame
+       is what made the cards read as tall empty rectangles. The auto margins
+       take the frame's spare height instead and split it evenly above and
+       below the track, so the slack reads as frame padding rather than as a
+       void under the cards. (An auto margin on the main axis absorbs free
+       space before flex-grow does, so the track is never stretched.) They
+       collapse to nothing on a short viewport, where the content wins. */
+    grid-template-rows: repeat(2, auto);
+    margin: auto 0;
 }
 
 /* ---------- Card tilt ---------- */

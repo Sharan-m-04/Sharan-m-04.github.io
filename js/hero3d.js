@@ -82,10 +82,56 @@
     renderer.domElement.className = 'webgl-canvas';
     document.body.appendChild(renderer.domElement);
 
-    scene.add(new THREE.HemisphereLight(0xffffff, 0x3a3a48, 1.0));
+    // Second canvas, stacked ABOVE the projected About DOM. The whole scene
+    // lives in one WebGL layer, but a canvas can only sit on one side of an
+    // HTML element — with everything behind, the About panel painted over the
+    // man's arms and read as pasted on top of him rather than displayed
+    // inside his screen. So the parts nearer the camera than the screen
+    // (arms, hands, keyboard deck, desk) move to this canvas and the page is
+    // sandwiched between the two.
+    //
+    // The split is TEMPORARY, and only while the projection is up: the two
+    // canvases have independent depth buffers, so a foreground part is drawn
+    // over the background pass unconditionally. That is right once the
+    // cinematic has orbited to face the screen and his arms really are in
+    // front of it — but at rest it put his hands in front of the closed lid.
+    // Off-projection everything stays on layer 0 and one depth buffer sorts
+    // the whole figure correctly.
+    var FG_LAYER = 1;
+
+    var fgRenderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    fgRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    fgRenderer.domElement.className = 'webgl-canvas webgl-canvas-fg';
+    document.body.appendChild(fgRenderer.domElement);
+
+    // a light only lights objects on a layer it shares, so the foreground
+    // meshes would render black without this
+    var hemiLight = new THREE.HemisphereLight(0xffffff, 0x3a3a48, 1.0);
+    hemiLight.layers.enableAll();
+    scene.add(hemiLight);
     var keyLight = new THREE.DirectionalLight(0xfff2e0, 0.85);
     keyLight.position.set(2.5, 4, 5);
+    keyLight.layers.enableAll();
     scene.add(keyLight);
+
+    // registers a part as a near-camera occluder; the layer move happens in
+    // setSplitLayers(), not here
+    var fgParts = [];
+
+    function foreground(obj) {
+        fgParts.push(obj);
+        if (obj.userData.edgeLine) fgParts.push(obj.userData.edgeLine);
+        return obj;
+    }
+
+    // layers.set() replaces layer 0, so a part is drawn by exactly one pass
+    var splitLayers = false;
+
+    function setSplitLayers(on) {
+        if (on === splitLayers) return;
+        splitLayers = on;
+        fgParts.forEach(function (o) { o.layers.set(on ? FG_LAYER : 0); });
+    }
 
     var visH = 2 * Math.tan(FOV * Math.PI / 360) * CAM_Z;
     var visW = visH;
@@ -118,6 +164,7 @@
                 accentLineMat);
             line.position.set(x, y, z);
             manGroup.add(line);
+            mesh.userData.edgeLine = line;
         }
         return mesh;
     }
@@ -125,7 +172,9 @@
     function addCapsule(fromV, toV, r, mat) {
         var dir = new THREE.Vector3().subVectors(toV, fromV);
         var dist = dir.length();
-        var geo = new THREE.CapsuleGeometry(r, Math.max(0.01, dist - r * 2), 4, 10);
+        // 10 cap / 24 radial segments: at the scale the cinematic zooms to,
+        // the old 4 / 10 left visible facets down every limb
+        var geo = new THREE.CapsuleGeometry(r, Math.max(0.01, dist - r * 2), 10, 24);
         var mesh = new THREE.Mesh(geo, mat);
         mesh.position.copy(fromV).addScaledVector(dir, 0.5);
         mesh.quaternion.setFromUnitVectors(
@@ -135,22 +184,30 @@
     }
 
     function addSphere(r, mat, x, y, z, scaleY) {
-        var mesh = new THREE.Mesh(new THREE.SphereGeometry(r, 22, 16), mat);
+        var mesh = new THREE.Mesh(new THREE.SphereGeometry(r, 36, 24), mat);
         mesh.position.set(x, y, z);
         if (scaleY) mesh.scale.y = scaleY;
         manGroup.add(mesh);
         return mesh;
     }
 
+    // A ball at every articulation, cut slightly wider than the two limbs it
+    // links. Limbs are then run INTO the ball's centre rather than stopped at
+    // its surface: two capsules of different radii meeting end-to-end is what
+    // left a visible step — or a hole — at every joint.
+    function addJoint(r, mat, v) {
+        return addSphere(r, mat, v.x, v.y, v.z);
+    }
+
     function addCylinder(rt, rb, h, mat, x, y, z) {
-        var mesh = new THREE.Mesh(new THREE.CylinderGeometry(rt, rb, h, 18), mat);
+        var mesh = new THREE.Mesh(new THREE.CylinderGeometry(rt, rb, h, 32), mat);
         mesh.position.set(x, y, z);
         manGroup.add(mesh);
         return mesh;
     }
 
     // desk (top surface at y = 0)
-    addBox(2.6, 0.08, 1.25, deskMat, 0, -0.04, 0.12, true);
+    foreground(addBox(2.6, 0.08, 1.25, deskMat, 0, -0.04, 0.12, true));
     addBox(0.07, 0.9, 0.07, deskMat, -1.2, -0.53, 0.55);
     addBox(0.07, 0.9, 0.07, deskMat, 1.2, -0.53, 0.55);
     addBox(0.07, 0.9, 0.07, deskMat, -1.2, -0.53, -0.3);
@@ -163,46 +220,70 @@
     var backrest = addBox(0.56, 0.7, 0.1, chairMat, 0, 0.12, -1.1);
     backrest.rotation.x = -0.08;
 
-    // hips + legs (seated: thighs forward under the desk, shins down)
-    addBox(0.5, 0.18, 0.42, pantsMat, 0, -0.26, -0.78);
-    addCapsule(new THREE.Vector3(-0.14, -0.28, -0.8),
-        new THREE.Vector3(-0.16, -0.3, -0.28), 0.09, pantsMat);
-    addCapsule(new THREE.Vector3(0.14, -0.28, -0.8),
-        new THREE.Vector3(0.16, -0.3, -0.28), 0.09, pantsMat);
-    addCapsule(new THREE.Vector3(-0.16, -0.32, -0.28),
-        new THREE.Vector3(-0.16, -0.82, -0.24), 0.075, pantsMat);
-    addCapsule(new THREE.Vector3(0.16, -0.32, -0.28),
-        new THREE.Vector3(0.16, -0.82, -0.24), 0.075, pantsMat);
-    addBox(0.15, 0.09, 0.28, shoeMat, -0.16, -0.9, -0.14);
-    addBox(0.15, 0.09, 0.28, shoeMat, 0.16, -0.9, -0.14);
+    // hips + legs (seated: thighs forward under the desk, shins down).
+    // The pelvis was a box, which met the round thighs at a hard corner —
+    // it is a flattened capsule now so the whole lower body is one surface.
+    var pelvis = addCapsule(new THREE.Vector3(-0.15, -0.25, -0.78),
+        new THREE.Vector3(0.15, -0.25, -0.78), 0.155, pantsMat);
+    pelvis.scale.z = 0.8;
+
+    [-1, 1].forEach(function (s) {
+        var hip = new THREE.Vector3(s * 0.15, -0.27, -0.76);
+        var knee = new THREE.Vector3(s * 0.16, -0.30, -0.28);
+        var ankle = new THREE.Vector3(s * 0.16, -0.80, -0.23);
+        var toe = new THREE.Vector3(s * 0.16, -0.88, -0.04);
+
+        addJoint(0.105, pantsMat, hip);
+        addCapsule(hip, knee, 0.096, pantsMat);
+        addJoint(0.094, pantsMat, knee);
+        addCapsule(knee, ankle, 0.082, pantsMat);
+        addJoint(0.076, shoeMat, ankle);
+        addCapsule(ankle, toe, 0.072, shoeMat);
+    });
 
     // torso, shoulders, neck, head, hair (sits tall so his face and chest
     // stay visible above the laptop lid) — torso flattened front-to-back
     // so the chest/stomach reads as a body, not a ball
-    var torso = addCapsule(new THREE.Vector3(0, -0.08, -0.78),
-        new THREE.Vector3(0, 0.42, -0.78), 0.19, shirtMat);
-    torso.scale.z = 0.6;
-    var shoulders = addCapsule(new THREE.Vector3(-0.26, 0.48, -0.78),
-        new THREE.Vector3(0.26, 0.48, -0.78), 0.09, shirtMat);
-    shoulders.scale.z = 0.8;
-    addCylinder(0.055, 0.06, 0.14, skinMat, 0, 0.62, -0.78);
-    addSphere(0.17, skinMat, 0, 0.82, -0.78);
-    addSphere(0.19, hairMat, 0, 0.89, -0.8, 0.75);
+    var torso = addCapsule(new THREE.Vector3(0, -0.12, -0.78),
+        new THREE.Vector3(0, 0.40, -0.78), 0.205, shirtMat);
+    torso.scale.z = 0.62;
 
-    // arms: shirt upper arms bent at the elbow, skin forearms + hands
-    addCapsule(new THREE.Vector3(-0.3, 0.5, -0.78),
-        new THREE.Vector3(-0.36, 0.06, -0.5), 0.07, shirtMat);
-    addCapsule(new THREE.Vector3(0.3, 0.5, -0.78),
-        new THREE.Vector3(0.36, 0.06, -0.5), 0.07, shirtMat);
-    addCapsule(new THREE.Vector3(-0.36, 0.06, -0.5),
-        new THREE.Vector3(-0.22, 0.06, 0.0), 0.06, skinMat);
-    addCapsule(new THREE.Vector3(0.36, 0.06, -0.5),
-        new THREE.Vector3(0.22, 0.06, 0.0), 0.06, skinMat);
-    var handL = addSphere(0.07, skinMat, -0.22, 0.06, 0.04);
-    var handR = addSphere(0.07, skinMat, 0.22, 0.06, 0.04);
+    // the shoulder bar overlaps the torso's top cap and both deltoid balls,
+    // so chest → shoulder → arm is a single unbroken silhouette
+    var shoulders = addCapsule(new THREE.Vector3(-0.23, 0.43, -0.78),
+        new THREE.Vector3(0.23, 0.43, -0.78), 0.125, shirtMat);
+    shoulders.scale.z = 0.8;
+
+    // neck sunk into both the chest and the skull rather than bridging a gap
+    addCapsule(new THREE.Vector3(0, 0.46, -0.78),
+        new THREE.Vector3(0, 0.72, -0.78), 0.076, skinMat);
+    var head = addSphere(0.17, skinMat, 0, 0.83, -0.78);
+    head.scale.set(0.97, 1.06, 0.98);
+    addSphere(0.184, hairMat, 0, 0.885, -0.795, 0.8);
+
+    // arms: shirt upper arms bent at the elbow, skin forearms + hands.
+    // These reach around the laptop toward the viewer, so once the cinematic
+    // has orbited to face the screen they are the parts in front of it.
+    var hands = [-1, 1].map(function (s) {
+        var shoulder = new THREE.Vector3(s * 0.25, 0.44, -0.78);
+        var elbow = new THREE.Vector3(s * 0.35, 0.06, -0.5);
+        var wrist = new THREE.Vector3(s * 0.23, 0.06, 0.0);
+
+        addJoint(0.115, shirtMat, shoulder);
+        foreground(addCapsule(shoulder, elbow, 0.079, shirtMat));
+        foreground(addJoint(0.084, shirtMat, elbow));
+        foreground(addCapsule(elbow, wrist, 0.07, skinMat));
+
+        var hand = foreground(addSphere(0.075, skinMat, s * 0.22, 0.06, 0.04));
+        hand.scale.set(1, 0.82, 1.15);
+        return hand;
+    });
+
+    var handL = hands[0];
+    var handR = hands[1];
 
     // laptop — base + lid; the lid's BACK faces the camera at rest
-    addBox(0.9, 0.035, 0.58, laptopMat, 0, 0.02, 0.28, true);
+    foreground(addBox(0.9, 0.035, 0.58, laptopMat, 0, 0.02, 0.28, true));
 
     var lidGroup = new THREE.Group();
     lidGroup.position.set(0, 0.02, 0.57);
@@ -319,6 +400,7 @@
         camera.aspect = w / h;
         camera.updateProjectionMatrix();
         renderer.setSize(w, h);
+        fgRenderer.setSize(w, h);
         visW = visH * camera.aspect;
         worldPerPx = visH / h;
         layoutBg();
@@ -332,6 +414,7 @@
 
     var cinematicP = 0;
     var hasCinematic = false;
+    var heroPin = null;
     var heroCopy = document.querySelector('.hero-copy');
 
     function smoothstep(a, b, x) {
@@ -343,26 +426,34 @@
         gsap.registerPlugin(ScrollTrigger);
         hasCinematic = true;
 
-        ScrollTrigger.create({
+        heroPin = ScrollTrigger.create({
             trigger: '#home',
             start: 'top 96px',
             end: '+=150%',
             pin: true,
-            scrub: 0.5,
             anticipatePin: 1,
-            refreshPriority: 2,
-            onUpdate: function (self) {
-                cinematicP = self.progress;
-                var fade = 1 - smoothstep(0.4, 0.75, cinematicP);
-                heroCopy.style.opacity = fade;
-                heroCopy.style.pointerEvents = fade < 0.4 ? 'none' : '';
-            }
+            refreshPriority: 2
         });
 
         // the projects pin (created earlier in effects.js) must re-measure
         // now that this pin's spacer exists — don't wait for `load`
         ScrollTrigger.sort();
         ScrollTrigger.refresh();
+    }
+
+    // The cinematic reads its progress straight off the pin's measured scroll
+    // range every frame rather than caching whatever ScrollTrigger last
+    // pushed through an onUpdate callback. A scrubbed callback lags the real
+    // scroll, so a programmatic jump (clicking "Home" from far down the page)
+    // could land at scrollY 0 with the cached progress still near 1 — the
+    // scene stayed frozen at the end of the cinematic, About stayed projected
+    // inside the laptop, and the hero copy stayed faded out. Derived state
+    // cannot desync: wherever the page is, the scene follows.
+    function pinProgress() {
+        if (!heroPin) return 0;
+        var span = heroPin.end - heroPin.start;
+        if (!(span > 0)) return 0;
+        return Math.min(Math.max((window.scrollY - heroPin.start) / span, 0), 1);
     }
 
     /* ---------- About-in-screen DOM projection ---------- */
@@ -375,8 +466,12 @@
     function enterInScreen() {
         if (inScreen) return;
         inScreen = true;
+        setSplitLayers(true);
         aboutW = about.offsetWidth;
         aboutSpacer = document.createElement('div');
+        // main.js resolves nav-link targets through this class: while About
+        // is projected into the laptop, THIS is its real slot in the flow
+        aboutSpacer.className = 'flow-slot';
         aboutSpacer.style.height = about.offsetHeight + 'px';
         aboutSpacer.style.marginBottom = getComputedStyle(about).marginBottom;
         about.parentNode.insertBefore(aboutSpacer, about);
@@ -392,6 +487,7 @@
     function exitInScreen() {
         if (!inScreen) return;
         inScreen = false;
+        setSplitLayers(false);
         about.classList.remove('in-screen');
         about.style.transform = '';
         about.style.opacity = '';
@@ -454,7 +550,18 @@
         rafId = requestAnimationFrame(animate);
         var t = (now - start) / 1000;
         var scrollY = window.scrollY;
+
+        // ease toward the true progress — keeps the scrubbed, weighty feel of
+        // the pin while always converging on the real scroll position
+        var trueP = pinProgress();
+        cinematicP += (trueP - cinematicP) * 0.16;
+        if (Math.abs(trueP - cinematicP) < 0.0015) cinematicP = trueP;
+
         var p = hasCinematic ? smoothstep(0, 1, cinematicP) : 0;
+
+        var fade = 1 - smoothstep(0.4, 0.75, cinematicP);
+        heroCopy.style.opacity = fade;
+        heroCopy.style.pointerEvents = fade < 0.4 ? 'none' : '';
 
         // anchor the scene to the hero stage element
         var rect = stage.getBoundingClientRect();
@@ -560,13 +667,20 @@
 
         // eased so the faint background boards return gently after release
         canvasOp += (canvasOpTarget - canvasOp) * 0.12;
-        renderer.domElement.style.opacity = canvasOp.toFixed(3);
+        var op = canvasOp.toFixed(3);
+        renderer.domElement.style.opacity = op;
+        fgRenderer.domElement.style.opacity = op;
 
         // after release the page has "entered the screen" — hide the scene
         // (it comes back as soon as the user scrolls up past the release)
         manGroup.visible = !(hasCinematic && p >= 0.999 && !inScreen);
 
+        // two passes, back then front, with the About DOM sandwiched between
+        // them by z-index
+        camera.layers.set(0);
         renderer.render(scene, camera);
+        camera.layers.set(FG_LAYER);
+        fgRenderer.render(scene, camera);
     }
 
     rafId = requestAnimationFrame(animate);

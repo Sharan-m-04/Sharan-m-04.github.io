@@ -76,7 +76,42 @@
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" class="cursor-arrow-svg">
             <path d="M5.2 3.1 L19.8 11.6 L12.9 13.1 L9.4 19.9 Z" class="cursor-arrow" />
         </svg>
-        <span class="cursor-caret" id="cursor-caret"></span>
+
+        <!-- Pointing hand, shown wherever the page would use cursor: pointer.
+             One definition drawn twice: a fattened pass in the canvas colour
+             makes the casing, the light pass sits inside it. Every part is the
+             same colour in each pass, so the overlaps leave no seams — and the
+             gaps deliberately left between the fingers let the casing through
+             as the knuckle lines. -->
+        <svg width="24" height="26" viewBox="0 0 24 26" fill="none" class="cursor-hand-svg">
+            <defs>
+                <!-- index, then the three folded fingers, then palm and thumb.
+                     The 0.8 gaps between the fingers are load-bearing: they
+                     are narrower than the casing pass fattens (0.9 a side, so
+                     the dark shapes still merge into one silhouette) but wide
+                     enough that the white pass leaves them open as the knuckle
+                     lines, which stop above the palm's top edge. -->
+                <g id="cursor-hand-parts">
+                    <rect x="7.2" y="3" width="3" height="11" rx="1.5" />
+                    <rect x="11" y="8.6" width="2.8" height="6.9" rx="1.4" />
+                    <rect x="14.6" y="9.6" width="2.7" height="6.4" rx="1.35" />
+                    <rect x="18.1" y="10.8" width="2.5" height="5.7" rx="1.25" />
+                    <rect x="7.2" y="13" width="13.4" height="9.5" rx="3.2" />
+                    <rect x="3.4" y="13" width="3" height="7.5" rx="1.5"
+                        transform="rotate(-30 4.9 16.75)" />
+                </g>
+            </defs>
+            <use href="#cursor-hand-parts" class="cursor-hand-case" />
+            <use href="#cursor-hand-parts" class="cursor-hand-fill" />
+        </svg>
+
+        <!-- I-beam over text: a filled serif beam rather than three hairlines,
+             so the stem carries real weight. paint-order puts the casing
+             behind the fill. -->
+        <svg width="12" height="24" viewBox="0 0 12 24" fill="none" class="cursor-beam-svg">
+            <path class="cursor-beam-line"
+                d="M2.6 2.6H9.4V4H6.9V20H9.4V21.4H2.6V20H5.1V4H2.6Z" />
+        </svg>
     </div>
     <div class="cursor-label mono" id="cursor-label" aria-hidden="true"></div>
 
